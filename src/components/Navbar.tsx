@@ -1,17 +1,21 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Leaf } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   
-  const navLinks = [
+  const mainLinks = [
     { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+  ];
+  
+  const menuLinks = [
     { name: 'Awareness', path: '/awareness' },
-    { name: 'AI Chat', path: '/ai-chat' },
     { name: 'Volunteering', path: '/volunteering' },
     { name: 'Marketplace', path: '/marketplace' },
     { name: 'Quizzes', path: '/quizzes' }
@@ -32,6 +36,7 @@ const Navbar = () => {
   
   useEffect(() => {
     setIsOpen(false);
+    setIsMenuOpen(false);
   }, [location]);
 
   return (
@@ -40,28 +45,63 @@ const Navbar = () => {
         {/* Logo */}
         <Link 
           to="/" 
-          className="flex items-center space-x-2 text-anka-blue"
+          className="flex items-center space-x-2 text-anka-navy"
           aria-label="Anka - Home"
         >
-          <Leaf className="h-8 w-8" />
+          <img 
+            src="/lovable-uploads/d7e89ad7-a983-4a6b-8ca3-9ddde7c15aa6.png" 
+            alt="Anka Logo" 
+            className="h-10 w-10" 
+          />
           <span className="text-2xl font-bold tracking-tight">anka</span>
         </Link>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex md:items-center md:space-x-8">
-          {navLinks.map(link => (
+          {/* Main links in the middle */}
+          {mainLinks.map(link => (
             <Link
               key={link.name}
               to={link.path}
               className={`transition-all duration-200 py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 ${
                 location.pathname === link.path
-                  ? 'font-medium text-anka-blue after:bg-anka-blue after:w-full'
-                  : 'text-foreground/80 hover:text-anka-blue after:bg-anka-blue/50'
+                  ? 'font-medium text-anka-navy after:bg-anka-gold after:w-full'
+                  : 'text-foreground/80 hover:text-anka-navy after:bg-anka-gold/50'
               }`}
             >
               {link.name}
             </Link>
           ))}
+          
+          {/* Menu dropdown for other links */}
+          <div className="relative">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onBlur={() => setTimeout(() => setIsMenuOpen(false), 100)}
+              className="flex items-center space-x-1 text-foreground/80 hover:text-anka-navy transition-colors"
+            >
+              <span>Menu</span>
+              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {isMenuOpen && (
+              <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg py-2 z-50 border border-anka-gold/20 animate-fade-in">
+                {menuLinks.map(link => (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`block px-4 py-2 text-sm hover:bg-anka-gold/10 transition-colors ${
+                      location.pathname === link.path
+                        ? 'font-medium text-anka-navy bg-anka-gold/5'
+                        : 'text-foreground/80'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         
         {/* Mobile Menu Button */}
@@ -82,14 +122,14 @@ const Navbar = () => {
         style={{ top: '0', paddingTop: '5rem' }}
       >
         <div className="flex flex-col px-8 py-6 space-y-6">
-          {navLinks.map(link => (
+          {[...mainLinks, ...menuLinks].map(link => (
             <Link
               key={link.name}
               to={link.path}
               className={`text-xl py-3 transition-colors duration-200 ${
                 location.pathname === link.path
-                  ? 'text-anka-blue font-medium'
-                  : 'text-white hover:text-anka-blue'
+                  ? 'text-anka-gold font-medium'
+                  : 'text-white hover:text-anka-gold'
               }`}
             >
               {link.name}

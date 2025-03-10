@@ -63,8 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Anka custom colors
+				// Anka custom colors updated to match the logo
 				anka: {
+					gold: '#f0c419', // Ankh gold color
+					navy: '#1d3557', // Deep navy blue like in logo
+					sand: '#f5e6ca', // Ancient papyrus/sand color
+					terracotta: '#c35831', // Ancient Egyptian terracotta
+					turquoise: '#4ecdc4', // Ancient Egyptian turquoise
 					green: '#4CAF50',
 					blue: '#0EA5E9',
 					darkBlue: '#0F172A',

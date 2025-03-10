@@ -1,37 +1,36 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 50% 98%;
-    --foreground: 222 47% 11%;
+    --background: 44 50% 98%;
+    --foreground: 215 71% 24%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 215 71% 24%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 215 71% 24%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 45 83% 52%;
+    --primary-foreground: 215 71% 24%;
 
-    --secondary: 160 84% 39%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 215 71% 24%;
+    --secondary-foreground: 44 90% 92%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 44 33% 96%;
+    --muted-foreground: 215 25% 46.9%;
 
-    --accent: 199 89% 94%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 171 65% 55%;
+    --accent-foreground: 215 71% 24%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 199 89% 48%;
+    --border: 215 31.8% 91.4%;
+    --input: 215 31.8% 91.4%;
+    --ring: 45 83% 52%;
 
     --radius: 0.75rem;
   }
@@ -58,7 +57,11 @@
   }
   
   .glass-dark {
-    @apply bg-anka-darkBlue/80 backdrop-blur-md border border-white/10 shadow-md;
+    @apply bg-anka-navy/80 backdrop-blur-md border border-white/10 shadow-md;
+  }
+  
+  .glass-gold {
+    @apply bg-anka-gold/10 backdrop-blur-md border border-anka-gold/30 shadow-sm;
   }
   
   /* Animations */
@@ -139,5 +142,29 @@
   
   .body-large {
     @apply text-lg leading-relaxed;
+  }
+  
+  /* Ancient papyrus texture effect */
+  .papyrus-texture {
+    @apply bg-anka-sand/50 bg-opacity-60 relative;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(240, 196, 25, 0.05),
+      rgba(240, 196, 25, 0.05) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+  }
+  
+  /* Hieroglyphic accent borders */
+  .hieroglyphic-border {
+    @apply border-anka-gold/70 border-2 relative;
+    background-image: repeating-linear-gradient(
+      to right,
+      rgba(29, 53, 87, 0.1),
+      rgba(29, 53, 87, 0.1) 3px,
+      transparent 3px,
+      transparent 15px
+    );
   }
 }
