@@ -1,4 +1,3 @@
-
 import { Leaf, ArrowRight, Zap, Users, BookOpen, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -39,7 +38,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-anka-pharaohBlue">
       <Navbar />
       
       <main className="flex-grow">
@@ -56,12 +55,12 @@ const Index = () => {
         />
         
         {/* Features Section */}
-        <section className="py-20 px-6 bg-gradient-to-b from-white to-anka-lightBlue/30">
+        <section className="py-20 px-6 bg-gradient-to-b from-anka-nightBlue to-anka-pharaohBlue">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12 max-w-3xl mx-auto">
-              <div className="subtitle text-anka-blue mb-2 animate-fade-in">Our Platform</div>
+              <div className="subtitle text-anka-gold mb-2 animate-fade-in">Our Platform</div>
               <h2 className="heading-2 mb-4 animate-fade-in">How Anka Helps You Make a Difference</h2>
-              <p className="text-anka-darkBlue/70 animate-fade-in stagger-1">
+              <p className="text-foreground/70 animate-fade-in stagger-1">
                 Discover our comprehensive suite of tools and resources designed to help you contribute to a sustainable future through renewable energy adoption.
               </p>
             </div>
@@ -83,7 +82,7 @@ const Index = () => {
         </section>
         
         {/* Impact Stats Section */}
-        <section className="py-16 px-6 bg-anka-darkBlue text-white relative overflow-hidden">
+        <section className="py-16 px-6 bg-anka-nightBlue text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.3),transparent_70%)]"></div>
             <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(76,175,80,0.3),transparent_70%)]"></div>
@@ -91,7 +90,7 @@ const Index = () => {
           
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-12">
-              <div className="subtitle text-anka-blue mb-2 animate-fade-in">Our Impact</div>
+              <div className="subtitle text-anka-gold mb-2 animate-fade-in">Our Impact</div>
               <h2 className="heading-2 mb-4 animate-fade-in">Together We're Making a Difference</h2>
             </div>
             
@@ -116,26 +115,26 @@ const Index = () => {
         </section>
         
         {/* CTA Section */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6 bg-gradient-to-b from-anka-pharaohBlue to-anka-nightBlue">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="bg-white/50 backdrop-blur-sm border border-white/40 rounded-3xl p-10 shadow-xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-anka-blue/5 to-anka-green/5 -z-10"></div>
+            <div className="glass-dark rounded-3xl p-10 shadow-xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-anka-gold/5 to-anka-turquoise/5 -z-10"></div>
               
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-anka-blue/10 flex items-center justify-center">
-                  <Leaf size={32} className="text-anka-blue" />
+                <div className="w-16 h-16 rounded-full bg-anka-gold/10 flex items-center justify-center">
+                  <Leaf size={32} className="text-anka-gold" />
                 </div>
               </div>
               
               <h2 className="heading-2 mb-4 animate-fade-in">Ready to Join the Renewable Energy Movement?</h2>
-              <p className="text-lg text-anka-darkBlue/70 mb-8 max-w-2xl mx-auto animate-fade-in stagger-1">
+              <p className="text-lg text-foreground/70 mb-8 max-w-2xl mx-auto animate-fade-in stagger-1">
                 Start your journey towards a sustainable future today. Explore our platform, learn about renewable energy, and connect with like-minded individuals.
               </p>
               
               <div className="flex flex-wrap justify-center gap-4 animate-fade-in stagger-2">
                 <Link
                   to="/awareness"
-                  className="px-6 py-3 rounded-full bg-anka-blue hover:bg-anka-blue/90 text-white font-medium transition-colors shadow-sm hover:shadow flex items-center group"
+                  className="px-6 py-3 rounded-full bg-anka-gold hover:bg-anka-gold/90 text-anka-pharaohBlue font-medium transition-colors shadow-sm hover:shadow flex items-center group"
                 >
                   Get Started
                   <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -143,7 +142,7 @@ const Index = () => {
                 
                 <Link
                   to="/quizzes"
-                  className="px-6 py-3 rounded-full bg-white hover:bg-anka-lightBlue/50 text-anka-darkBlue font-medium border border-anka-blue/20 transition-colors"
+                  className="px-6 py-3 rounded-full bg-anka-navy/50 hover:bg-anka-navy text-foreground font-medium border border-anka-gold/20 transition-colors"
                 >
                   Take a Quiz
                 </Link>
