@@ -17,6 +17,12 @@ const ChatBubble = () => {
     }
   };
   
+  // Add this function to handle AI form submission
+  const handleAIFormSubmit = (idea: string) => {
+    console.log("Idea submitted:", idea);
+    // Future functionality can be added here
+  };
+  
   return (
     <>
       {/* Floating chat bubble button */}
@@ -37,8 +43,8 @@ const ChatBubble = () => {
       
       {/* Mini chat panel that appears when clicked */}
       {!isMinimized && (
-        <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 animate-fade-in border border-anka-gold/20">
-          <div className="bg-gradient-to-r from-anka-navy to-anka-navy/90 text-white p-4 flex justify-between items-center">
+        <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-anka-darkNavy rounded-xl shadow-xl overflow-hidden transition-all duration-300 animate-fade-in border border-anka-gold/20">
+          <div className="bg-gradient-to-r from-anka-navy to-anka-darkNavy text-white p-4 flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <Zap size={20} className="text-anka-gold" />
               <h3 className="font-semibold">AI Idea Evaluator</h3>
@@ -53,8 +59,8 @@ const ChatBubble = () => {
               Expand
             </button>
           </div>
-          <div className="p-4 bg-anka-sand/10">
-            <p className="text-sm text-anka-navy/80 mb-4">
+          <div className="p-4 bg-anka-sand/5">
+            <p className="text-sm text-anka-sand/80 mb-4">
               Share your renewable energy idea, and I'll evaluate its feasibility and provide guidance.
             </p>
             <button 
@@ -73,8 +79,8 @@ const ChatBubble = () => {
       
       {/* Full dialog that opens when "Expand" is clicked */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden bg-white">
-          <DialogHeader className="bg-gradient-to-r from-anka-navy to-anka-navy/90 text-white p-5">
+        <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden bg-anka-darkNavy border border-anka-gold/20">
+          <DialogHeader className="bg-gradient-to-r from-anka-navy to-anka-darkNavy text-white p-5">
             <DialogTitle className="flex items-center space-x-2">
               <Zap size={20} className="text-anka-gold" />
               <span>AI Idea Evaluator</span>
@@ -84,7 +90,7 @@ const ChatBubble = () => {
             </DialogDescription>
           </DialogHeader>
           <div className="p-5 max-h-[70vh] overflow-y-auto scrollbar-none">
-            <AIForm />
+            <AIForm onSubmit={handleAIFormSubmit} />
           </div>
         </DialogContent>
       </Dialog>

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { AlignJustify, X, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +45,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link 
           to="/" 
-          className="flex items-center space-x-2 text-anka-navy"
+          className="flex items-center space-x-2 text-anka-gold"
           aria-label="Anka - Home"
         >
           <img 
@@ -56,61 +56,60 @@ const Navbar = () => {
           <span className="text-2xl font-bold tracking-tight">anka</span>
         </Link>
         
-        {/* Desktop Navigation */}
+        {/* Center Nav Links */}
         <div className="hidden md:flex md:items-center md:space-x-8">
-          {/* Main links in the middle */}
           {mainLinks.map(link => (
             <Link
               key={link.name}
               to={link.path}
               className={`transition-all duration-200 py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 ${
                 location.pathname === link.path
-                  ? 'font-medium text-anka-navy after:bg-anka-gold after:w-full'
-                  : 'text-foreground/80 hover:text-anka-navy after:bg-anka-gold/50'
+                  ? 'font-medium text-anka-gold after:bg-anka-gold after:w-full'
+                  : 'text-foreground/80 hover:text-anka-gold after:bg-anka-gold/50'
               }`}
             >
               {link.name}
             </Link>
           ))}
+        </div>
+        
+        {/* Right Menu Dropdown */}
+        <div className="hidden md:block relative">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onBlur={() => setTimeout(() => setIsMenuOpen(false), 100)}
+            className="flex items-center space-x-1 text-foreground/80 hover:text-anka-gold transition-colors"
+          >
+            <span>Menu</span>
+            <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
+          </button>
           
-          {/* Menu dropdown for other links */}
-          <div className="relative">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              onBlur={() => setTimeout(() => setIsMenuOpen(false), 100)}
-              className="flex items-center space-x-1 text-foreground/80 hover:text-anka-navy transition-colors"
-            >
-              <span>Menu</span>
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {isMenuOpen && (
-              <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg py-2 z-50 border border-anka-gold/20 animate-fade-in">
-                {menuLinks.map(link => (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className={`block px-4 py-2 text-sm hover:bg-anka-gold/10 transition-colors ${
-                      location.pathname === link.path
-                        ? 'font-medium text-anka-navy bg-anka-gold/5'
-                        : 'text-foreground/80'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+          {isMenuOpen && (
+            <div className="absolute right-0 mt-2 w-40 bg-anka-navy rounded-lg shadow-lg py-2 z-50 border border-anka-gold/20 animate-fade-in">
+              {menuLinks.map(link => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`block px-4 py-2 text-sm hover:bg-anka-gold/10 transition-colors ${
+                    location.pathname === link.path
+                      ? 'font-medium text-anka-gold bg-anka-gold/5'
+                      : 'text-foreground/80'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
         
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground"
+          className="md:hidden text-anka-gold"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isOpen ? <X className="h-6 w-6" /> : <AlignJustify className="h-6 w-6" />}
         </button>
       </div>
       

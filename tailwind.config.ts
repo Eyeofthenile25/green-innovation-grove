@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,10 +62,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Anka custom colors updated to match the logo
 				anka: {
 					gold: '#f0c419', // Ankh gold color
 					navy: '#1d3557', // Deep navy blue like in logo
+					darkNavy: '#0F172A', // Darker navy for backgrounds
 					sand: '#f5e6ca', // Ancient papyrus/sand color
 					terracotta: '#c35831', // Ancient Egyptian terracotta
 					turquoise: '#4ecdc4', // Ancient Egyptian turquoise
@@ -76,6 +75,11 @@ export default {
 					lightBlue: '#E0F2FE',
 					neutral: '#F8FAFC',
 					gray: '#94A3B8',
+					pharaohBlue: '#0c1e35', // Darker blue 
+					nightBlue: '#0A1428', // Very dark blue for backgrounds
+					khaki: '#BDB76B', // Ancient fabric color
+					darkGold: '#B8860B', // Darker gold
+					papyrus: '#E8DDB5' // Ancient papyrus
 				}
 			},
 			borderRadius: {

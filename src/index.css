@@ -1,17 +1,18 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 44 50% 98%;
-    --foreground: 215 71% 24%;
+    --background: 215 30% 12%;
+    --foreground: 44 50% 88%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 71% 24%;
+    --card: 215 35% 15%;
+    --card-foreground: 44 50% 88%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 71% 24%;
+    --popover: 215 35% 15%;
+    --popover-foreground: 44 50% 88%;
 
     --primary: 45 83% 52%;
     --primary-foreground: 215 71% 24%;
@@ -19,17 +20,17 @@
     --secondary: 215 71% 24%;
     --secondary-foreground: 44 90% 92%;
 
-    --muted: 44 33% 96%;
-    --muted-foreground: 215 25% 46.9%;
+    --muted: 215 30% 20%;
+    --muted-foreground: 44 20% 80%;
 
-    --accent: 171 65% 55%;
+    --accent: 171 65% 45%;
     --accent-foreground: 215 71% 24%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 31.8% 91.4%;
-    --input: 215 31.8% 91.4%;
+    --border: 215 31.8% 25%;
+    --input: 215 31.8% 25%;
     --ring: 45 83% 52%;
 
     --radius: 0.75rem;
@@ -48,16 +49,16 @@
   }
   
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-anka-pharaohBlue text-foreground font-sans;
   }
   
-  /* Glass effect */
+  /* Glass effect - updated for darker theme */
   .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+    @apply bg-anka-navy/40 backdrop-blur-md border border-anka-gold/20 shadow-sm;
   }
   
   .glass-dark {
-    @apply bg-anka-navy/80 backdrop-blur-md border border-white/10 shadow-md;
+    @apply bg-anka-nightBlue/80 backdrop-blur-md border border-anka-gold/10 shadow-md;
   }
   
   .glass-gold {
@@ -103,7 +104,7 @@
     transition: opacity 300ms, transform 300ms;
   }
   
-  /* Custom scrollbar */
+  /* Custom scrollbar - updated for darker theme */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -114,7 +115,7 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-anka-gray/30 rounded-full hover:bg-anka-gray/50 transition-colors;
+    @apply bg-anka-gold/30 rounded-full hover:bg-anka-gold/50 transition-colors;
   }
 }
 
@@ -144,9 +145,9 @@
     @apply text-lg leading-relaxed;
   }
   
-  /* Ancient papyrus texture effect */
+  /* Ancient papyrus texture effect - updated for darker theme */
   .papyrus-texture {
-    @apply bg-anka-sand/50 bg-opacity-60 relative;
+    @apply bg-anka-sand/10 bg-opacity-60 relative;
     background-image: repeating-linear-gradient(
       45deg,
       rgba(240, 196, 25, 0.05),
@@ -156,13 +157,13 @@
     );
   }
   
-  /* Hieroglyphic accent borders */
+  /* Hieroglyphic accent borders - updated for darker theme */
   .hieroglyphic-border {
-    @apply border-anka-gold/70 border-2 relative;
+    @apply border-anka-gold/40 border-2 relative;
     background-image: repeating-linear-gradient(
       to right,
-      rgba(29, 53, 87, 0.1),
-      rgba(29, 53, 87, 0.1) 3px,
+      rgba(240, 196, 25, 0.1),
+      rgba(240, 196, 25, 0.1) 3px,
       transparent 3px,
       transparent 15px
     );

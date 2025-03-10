@@ -6,12 +6,12 @@ import { Users, Leaf, Lightbulb, Heart } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-anka-pharaohBlue">
       <Navbar />
       
       <main className="flex-grow pt-24">
         {/* Hero Section */}
-        <section className="relative py-20 px-6 bg-gradient-to-b from-anka-navy to-anka-navy/90 text-white overflow-hidden">
+        <section className="relative py-20 px-6 bg-gradient-to-b from-anka-darkNavy to-anka-navy text-white overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(240,196,25,0.3),transparent_70%)]"></div>
           </div>
@@ -31,18 +31,18 @@ const About = () => {
         </section>
         
         {/* Vision Section */}
-        <section className="py-20 px-6 papyrus-texture">
+        <section className="py-20 px-6 bg-anka-nightBlue papyrus-texture">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="subtitle text-anka-navy mb-2">Our Vision</div>
-                <h2 className="heading-2 mb-6 text-anka-navy">Inspired by Ancient Wisdom</h2>
-                <p className="body-large mb-6 text-anka-navy/80">
+                <div className="subtitle text-anka-gold mb-2">Our Vision</div>
+                <h2 className="heading-2 mb-6 text-anka-sand">Inspired by Ancient Wisdom</h2>
+                <p className="body-large mb-6 text-anka-sand/80">
                   Like the Ankh symbol from ancient Egypt that represents eternal life, our platform 
                   symbolizes the sustainable cycle of renewable energy that brings life to our planet 
                   for generations to come.
                 </p>
-                <p className="body-large text-anka-navy/80">
+                <p className="body-large text-anka-sand/80">
                   We envision a world where clean energy is accessible to all, where communities are 
                   empowered with knowledge and tools to create sustainable solutions, and where each 
                   individual can contribute to a healthier planet.
@@ -62,12 +62,12 @@ const About = () => {
         </section>
         
         {/* What We Offer Section */}
-        <section className="py-20 px-6 bg-white">
+        <section className="py-20 px-6 bg-anka-navy/80">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <div className="subtitle text-anka-navy mb-2">What We Offer</div>
-              <h2 className="heading-2 mb-4">Our Comprehensive Approach</h2>
-              <p className="max-w-3xl mx-auto text-anka-navy/70">
+              <div className="subtitle text-anka-gold mb-2">What We Offer</div>
+              <h2 className="heading-2 mb-4 text-anka-sand">Our Comprehensive Approach</h2>
+              <p className="max-w-3xl mx-auto text-anka-sand/70">
                 We provide a multifaceted platform that combines education, technology, and community 
                 to make renewable energy accessible and actionable.
               </p>
@@ -103,8 +103,8 @@ const About = () => {
                   <div className="w-12 h-12 bg-anka-navy rounded-xl flex items-center justify-center mb-4">
                     <feature.icon className="w-6 h-6 text-anka-gold" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-anka-navy">{feature.title}</h3>
-                  <p className="text-anka-navy/70">{feature.description}</p>
+                  <h3 className="text-xl font-semibold mb-3 text-anka-sand">{feature.title}</h3>
+                  <p className="text-anka-sand/70">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -112,12 +112,12 @@ const About = () => {
         </section>
         
         {/* Team Section */}
-        <section className="py-20 px-6 bg-anka-sand/30 hieroglyphic-border">
+        <section className="py-20 px-6 bg-anka-darkNavy hieroglyphic-border">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <div className="subtitle text-anka-navy mb-2">Our Team</div>
-              <h2 className="heading-2 mb-4">Passionate Experts & Innovators</h2>
-              <p className="max-w-3xl mx-auto text-anka-navy/70">
+              <div className="subtitle text-anka-gold mb-2">Our Team</div>
+              <h2 className="heading-2 mb-4 text-anka-sand">Passionate Experts & Innovators</h2>
+              <p className="max-w-3xl mx-auto text-anka-sand/70">
                 Our diverse team of renewable energy experts, educators, engineers, and community 
                 organizers work together to bring sustainable solutions to life.
               </p>
@@ -125,11 +125,11 @@ const About = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[1, 2, 3].map((_, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-                  <div className="w-24 h-24 bg-anka-navy/10 rounded-full mx-auto mb-4"></div>
-                  <h3 className="text-xl font-semibold text-center mb-1">Team Member {index + 1}</h3>
-                  <p className="text-anka-navy/60 text-center mb-4">Position Title</p>
-                  <p className="text-anka-navy/70 text-center">
+                <div key={index} className="bg-anka-navy/50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-anka-gold/10">
+                  <div className="w-24 h-24 bg-anka-gold/10 rounded-full mx-auto mb-4"></div>
+                  <h3 className="text-xl font-semibold text-center mb-1 text-anka-sand">Team Member {index + 1}</h3>
+                  <p className="text-anka-gold/80 text-center mb-4">Position Title</p>
+                  <p className="text-anka-sand/70 text-center">
                     Brief description about the team member and their contribution to the Anka mission.
                   </p>
                 </div>
