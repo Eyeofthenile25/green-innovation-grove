@@ -12,6 +12,7 @@ import AIChat from "./pages/AIChat";
 import Volunteering from "./pages/Volunteering";
 import Marketplace from "./pages/Marketplace";
 import Quizzes from "./pages/Quizzes";
+import Authentication from "./pages/Authentication";
 import ChatBubble from "./components/ChatBubble";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/volunteering" element={<Volunteering />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/quizzes" element={<Quizzes />} />
+          <Route path="/auth" element={<Authentication />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

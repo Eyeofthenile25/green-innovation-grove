@@ -24,6 +24,9 @@ const Hero: React.FC<HeroProps> = ({
   secondaryCtaLink,
   imageSrc
 }) => {
+  // Redirect "Get Started" to authentication page
+  const actualCtaLink = ctaText === "Get Started" ? "/auth" : ctaLink;
+  
   return (
     <div className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
       {/* Background gradient - dark version */}
@@ -49,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({
           
           <div className="flex flex-wrap gap-4">
             <Link
-              to={ctaLink}
+              to={actualCtaLink}
               className="inline-flex items-center px-6 py-3 rounded-full bg-anka-gold hover:bg-anka-gold/90 text-anka-pharaohBlue font-medium transition-colors shadow-sm hover:shadow group"
             >
               {ctaText}
