@@ -49,7 +49,7 @@ const Navbar = () => {
           aria-label="Anka - Home"
         >
           <img 
-            src="/lovable-uploads/d7e89ad7-a983-4a6b-8ca3-9ddde7c15aa6.png" 
+            src="/lovable-uploads/920fadd4-f513-414a-bd9d-0fce5adec2ae.png" 
             alt="Anka Logo" 
             className="h-10 w-10" 
           />

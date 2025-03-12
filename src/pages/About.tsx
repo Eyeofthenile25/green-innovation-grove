@@ -51,7 +51,7 @@ const About = () => {
               <div className="flex justify-center">
                 <div className="w-64 h-64 rounded-full bg-anka-gold/10 border-8 border-anka-gold/30 flex items-center justify-center">
                   <img 
-                    src="/lovable-uploads/d7e89ad7-a983-4a6b-8ca3-9ddde7c15aa6.png" 
+                    src="/lovable-uploads/920fadd4-f513-414a-bd9d-0fce5adec2ae.png" 
                     alt="Anka Logo" 
                     className="w-40 h-40 object-contain"
                   />
