@@ -13,6 +13,7 @@ type UserContextType = {
   login: (email: string, password: string) => void;
   register: (name: string, email: string, password: string) => void;
   logout: () => void;
+  updateUserProfile: (userData: Partial<User>) => void;
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -52,6 +53,14 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('anka_user', JSON.stringify(mockUser));
   };
 
+  const updateUserProfile = (userData: Partial<User>) => {
+    if (user) {
+      const updatedUser = { ...user, ...userData };
+      setUser(updatedUser);
+      localStorage.setItem('anka_user', JSON.stringify(updatedUser));
+    }
+  };
+
   const logout = () => {
     setUser(null);
     localStorage.removeItem('anka_user');
@@ -63,7 +72,8 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
       isAuthenticated: !!user, 
       login, 
       register, 
-      logout 
+      logout,
+      updateUserProfile
     }}>
       {children}
     </UserContext.Provider>

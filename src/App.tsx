@@ -13,6 +13,7 @@ import Volunteering from "./pages/Volunteering";
 import Marketplace from "./pages/Marketplace";
 import Quizzes from "./pages/Quizzes";
 import Authentication from "./pages/Authentication";
+import Profile from "./pages/Profile";
 import ChatBubble from "./components/ChatBubble";
 import { UserProvider } from "./contexts/UserContext";
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/quizzes" element={<Quizzes />} />
             <Route path="/auth" element={<Authentication />} />
+            <Route path="/profile" element={<Profile />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

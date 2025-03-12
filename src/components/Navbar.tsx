@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AlignJustify, X, ChevronDown, User, LogOut, Settings } from 'lucide-react';
@@ -60,7 +59,6 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 px-6 transition-all duration-300 ${scrolled ? 'py-3 glass shadow-sm' : 'py-5 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
         <Link 
           to="/" 
           className="flex items-center space-x-2 text-anka-gold"
@@ -74,7 +72,6 @@ const Navbar = () => {
           <span className="text-2xl font-bold tracking-tight">anka</span>
         </Link>
         
-        {/* Center Nav Links */}
         <div className="hidden md:flex md:items-center md:space-x-8">
           {mainLinks.map(link => (
             <Link
@@ -92,7 +89,6 @@ const Navbar = () => {
         </div>
         
         <div className="hidden md:flex md:items-center md:space-x-6">
-          {/* Right Menu Dropdown */}
           <div className="relative">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -122,7 +118,6 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Profile Section */}
           {isAuthenticated ? (
             <div className="relative">
               <button 
@@ -171,7 +166,6 @@ const Navbar = () => {
           )}
         </div>
         
-        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-4">
           {isAuthenticated && (
             <Dialog>
@@ -191,7 +185,11 @@ const Navbar = () => {
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center space-x-3">
                     <div className="h-12 w-12 rounded-full bg-anka-gold/20 border border-anka-gold/30 flex items-center justify-center text-anka-gold">
-                      <User size={24} />
+                      {user?.image ? (
+                        <img src={user.image} alt={user.name} className="h-full w-full rounded-full object-cover" />
+                      ) : (
+                        <User size={24} />
+                      )}
                     </div>
                     <div>
                       <p className="font-medium text-white">{user?.name}</p>
@@ -228,7 +226,6 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile Menu */}
       <div 
         className={`fixed inset-0 z-40 glass-dark md:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
