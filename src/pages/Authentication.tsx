@@ -6,11 +6,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { toast } from '../hooks/use-toast';
+import { useUser } from '../contexts/UserContext';
 
 const Authentication = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const { login, register } = useUser();
   
   // Form state
   const [email, setEmail] = useState('');
@@ -20,18 +22,17 @@ const Authentication = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Mock authentication
     if (isLogin) {
-      // Simulate login success
-      console.log('User logged in:', email);
+      // Login
+      login(email, password);
       toast({
         title: "Welcome back!",
         description: "You've successfully logged in.",
       });
       navigate('/awareness');
     } else {
-      // Simulate registration success
-      console.log('User registered:', { name, email });
+      // Register
+      register(name, email, password);
       toast({
         title: "Account created!",
         description: "Your account has been successfully created.",

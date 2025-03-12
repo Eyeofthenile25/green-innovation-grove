@@ -14,29 +14,32 @@ import Marketplace from "./pages/Marketplace";
 import Quizzes from "./pages/Quizzes";
 import Authentication from "./pages/Authentication";
 import ChatBubble from "./components/ChatBubble";
+import { UserProvider } from "./contexts/UserContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/awareness" element={<Awareness />} />
-          <Route path="/ai-chat" element={<AIChat />} />
-          <Route path="/volunteering" element={<Volunteering />} />
-          <Route path="/marketplace" element={<Marketplace />} />
-          <Route path="/quizzes" element={<Quizzes />} />
-          <Route path="/auth" element={<Authentication />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <ChatBubble />
-      </BrowserRouter>
+      <UserProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/awareness" element={<Awareness />} />
+            <Route path="/ai-chat" element={<AIChat />} />
+            <Route path="/volunteering" element={<Volunteering />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/quizzes" element={<Quizzes />} />
+            <Route path="/auth" element={<Authentication />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <ChatBubble />
+        </BrowserRouter>
+      </UserProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
