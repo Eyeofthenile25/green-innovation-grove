@@ -1,12 +1,34 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Game, Ticket } from 'lucide-react';
+import { Ticket, Award } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import QuizCard from '../components/QuizCard';
 
 const Quizzes = () => {
+  // Define sample questions for the quiz
+  const solarQuestions = [
+    {
+      id: 1,
+      text: "What is the main component of a solar panel that converts sunlight into electricity?",
+      options: ["Inverter", "Photovoltaic cell", "Battery", "Transformer"],
+      correctAnswer: 1
+    },
+    {
+      id: 2,
+      text: "Which of these is NOT a benefit of solar energy?",
+      options: ["Renewable resource", "Zero emissions", "Works equally well in all weather", "Reduces electricity bills"],
+      correctAnswer: 2
+    },
+    {
+      id: 3,
+      text: "What percentage of the sun's energy that reaches Earth is typically converted into electricity by commercial solar panels?",
+      options: ["5-10%", "15-20%", "50-60%", "80-90%"],
+      correctAnswer: 1
+    }
+  ];
+  
   return (
     <div className="min-h-screen bg-anka-pharaohBlue">
       <Navbar />
@@ -40,12 +62,12 @@ const Quizzes = () => {
               <QuizCard 
                 title="Solar Energy Basics"
                 description="Test your knowledge about solar power fundamentals"
-                difficulty="Beginner"
-                points={100}
-                timeLimit={10}
-                questionsCount={10}
+                image="https://images.unsplash.com/photo-1592833759747-3bafd6d95315?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                pointsValue={100}
+                questions={solarQuestions}
+                onComplete={(score) => console.log(`Quiz completed with score: ${score}`)}
               />
-              {/* More quiz cards will be added here */}
+              {/* Add more quizzes here */}
             </div>
           </div>
         </section>
