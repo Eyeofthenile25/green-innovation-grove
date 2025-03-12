@@ -7,6 +7,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Awareness from "./pages/Awareness";
+import AIChat from "./pages/AIChat";
+import Volunteering from "./pages/Volunteering";
+import Marketplace from "./pages/Marketplace";
+import Quizzes from "./pages/Quizzes";
 import ChatBubble from "./components/ChatBubble";
 
 const queryClient = new QueryClient();
@@ -20,6 +25,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/awareness" element={<Awareness />} />
+          <Route path="/ai-chat" element={<AIChat />} />
+          <Route path="/volunteering" element={<Volunteering />} />
+          <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/quizzes" element={<Quizzes />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
