@@ -1,3 +1,4 @@
+
 import { Leaf, ArrowRight, Zap, Users, BookOpen, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -38,7 +39,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-anka-pharaohBlue">
+    <div className="min-h-screen flex flex-col bg-anka-black">
       <Navbar />
       
       <main className="flex-grow">
@@ -54,8 +55,8 @@ const Index = () => {
           imageSrc="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
         />
         
-        {/* Features Section */}
-        <section className="py-20 px-6 bg-gradient-to-b from-anka-nightBlue to-anka-pharaohBlue">
+        {/* Features Section - updated with new colors */}
+        <section className="py-20 px-6 bg-gradient-to-b from-anka-black to-anka-navy">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12 max-w-3xl mx-auto">
               <div className="subtitle text-anka-gold mb-2 animate-fade-in">Our Platform</div>
@@ -81,11 +82,11 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Impact Stats Section */}
-        <section className="py-16 px-6 bg-anka-nightBlue text-white relative overflow-hidden">
+        {/* Impact Stats Section - updated with new colors */}
+        <section className="py-16 px-6 bg-anka-black text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.3),transparent_70%)]"></div>
-            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(76,175,80,0.3),transparent_70%)]"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(201,162,39,0.2),transparent_70%)]"></div>
+            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(38,83,125,0.2),transparent_70%)]"></div>
           </div>
           
           <div className="max-w-7xl mx-auto relative z-10">
@@ -103,7 +104,7 @@ const Index = () => {
               ].map((stat, index) => (
                 <div 
                   key={stat.label} 
-                  className="glass-dark rounded-2xl p-6 border border-white/10 animate-fade-in-up"
+                  className="glass-dark rounded-2xl p-6 border border-anka-gold/20 animate-fade-in-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="text-4xl md:text-5xl font-bold mb-2 tracking-tight text-white">{stat.value}</div>
@@ -114,14 +115,14 @@ const Index = () => {
           </div>
         </section>
         
-        {/* CTA Section */}
-        <section className="py-20 px-6 bg-gradient-to-b from-anka-pharaohBlue to-anka-nightBlue">
+        {/* CTA Section - updated with new colors */}
+        <section className="py-20 px-6 bg-gradient-to-b from-anka-navy to-anka-black">
           <div className="max-w-5xl mx-auto text-center">
             <div className="glass-dark rounded-3xl p-10 shadow-xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-anka-gold/5 to-anka-turquoise/5 -z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-anka-gold/10 to-anka-blue/10 -z-10"></div>
               
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-anka-gold/10 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-anka-gold/15 flex items-center justify-center">
                   <Leaf size={32} className="text-anka-gold" />
                 </div>
               </div>
@@ -134,7 +135,7 @@ const Index = () => {
               <div className="flex flex-wrap justify-center gap-4 animate-fade-in stagger-2">
                 <Link
                   to="/awareness"
-                  className="px-6 py-3 rounded-full bg-anka-gold hover:bg-anka-gold/90 text-anka-pharaohBlue font-medium transition-colors shadow-sm hover:shadow flex items-center group"
+                  className="px-6 py-3 rounded-full bg-anka-gold hover:bg-anka-gold/90 text-anka-black font-medium transition-colors shadow-sm hover:shadow flex items-center group"
                 >
                   Get Started
                   <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -142,7 +143,7 @@ const Index = () => {
                 
                 <Link
                   to="/quizzes"
-                  className="px-6 py-3 rounded-full bg-anka-navy/50 hover:bg-anka-navy text-foreground font-medium border border-anka-gold/20 transition-colors"
+                  className="px-6 py-3 rounded-full bg-anka-navy/50 hover:bg-anka-navy text-foreground font-medium border border-anka-gold/30 transition-colors"
                 >
                   Take a Quiz
                 </Link>

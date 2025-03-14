@@ -29,17 +29,17 @@ const Hero: React.FC<HeroProps> = ({
   
   return (
     <div className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-      {/* Background gradient - dark version */}
-      <div className="absolute inset-0 bg-gradient-to-br from-anka-nightBlue via-anka-pharaohBlue to-anka-darkNavy -z-10"></div>
+      {/* Background gradient - updated with new colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-anka-black via-anka-navy to-anka-darkNavy -z-10"></div>
       
-      {/* Optional decorative elements - dark version */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-anka-gold/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-40 left-10 w-40 h-40 bg-anka-turquoise/5 rounded-full blur-3xl"></div>
+      {/* Optional decorative elements - updated with gold accents */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-anka-gold/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-40 left-10 w-40 h-40 bg-anka-brown/10 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         {/* Content */}
         <div className="animate-fade-in-up">
-          <div className="inline-flex items-center mb-4 px-3 py-1 rounded-full bg-anka-gold/10 text-anka-gold border border-anka-gold/20">
+          <div className="inline-flex items-center mb-4 px-3 py-1 rounded-full bg-anka-gold/15 text-anka-gold border border-anka-gold/30">
             <Sparkles size={16} className="mr-2" />
             <span className="text-sm font-medium">{subtitle}</span>
           </div>
@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({
           <div className="flex flex-wrap gap-4">
             <Link
               to={actualCtaLink}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-anka-gold hover:bg-anka-gold/90 text-anka-pharaohBlue font-medium transition-colors shadow-sm hover:shadow group"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-anka-gold hover:bg-anka-gold/90 text-anka-black font-medium transition-colors shadow-sm hover:shadow group"
             >
               {ctaText}
               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -62,7 +62,7 @@ const Hero: React.FC<HeroProps> = ({
             {secondaryCtaText && secondaryCtaLink && (
               <Link
                 to={secondaryCtaLink}
-                className="inline-flex items-center px-6 py-3 rounded-full bg-anka-navy/50 hover:bg-anka-navy text-foreground font-medium border border-anka-gold/20 transition-colors"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-anka-navy/50 hover:bg-anka-navy text-foreground font-medium border border-anka-gold/30 transition-colors"
               >
                 {secondaryCtaText}
               </Link>
@@ -78,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({
               alt="Renewable Energy Innovation" 
               className="rounded-2xl shadow-xl w-full h-auto object-cover aspect-[4/3]"
             />
-            <div className="absolute -inset-0.5 bg-gradient-to-tr from-anka-gold/20 to-transparent rounded-2xl -z-10 blur-xl opacity-50"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-tr from-anka-gold/30 to-transparent rounded-2xl -z-10 blur-xl opacity-50"></div>
           </div>
         )}
       </div>

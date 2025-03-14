@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,19 +54,22 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         anka: {
-          gold: '#f0c419', // Ankh gold color
-          navy: '#1d3557', // Deep navy blue like in logo
-          darkNavy: '#0F172A', // Darker navy for backgrounds
-          sand: '#f5e6ca', // Ancient papyrus/sand color
+          gold: '#c9a227', // Updated gold color from image
+          navy: '#1d3557', // Deep navy blue like in image
+          cream: '#e8e2c5', // Cream color from image
+          darkNavy: '#24374b', // Darker navy from image
+          brown: '#816f5a', // Brown color from image
+          black: '#121212', // Added black color
+          sand: '#e8e2c5', // Ancient papyrus/sand color (updated)
           terracotta: '#c35831', // Ancient Egyptian terracotta
           turquoise: '#4ecdc4', // Ancient Egyptian turquoise
           green: '#4CAF50',
-          blue: '#0EA5E9',
+          blue: '#26537d', // Updated blue from image
           darkBlue: '#0F172A',
           lightBlue: '#E0F2FE',
           neutral: '#F8FAFC',
           gray: '#94A3B8',
-          pharaohBlue: '#0c1e35', // Darker blue 
+          pharaohBlue: '#111927', // Very dark blue/black
           nightBlue: '#0A1428', // Very dark blue for backgrounds
           khaki: '#BDB76B', // Ancient fabric color
           darkGold: '#B8860B', // Darker gold

@@ -1,36 +1,37 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 215 30% 12%;
+    --background: 220 30% 12%;
     --foreground: 44 50% 88%;
 
-    --card: 215 35% 15%;
+    --card: 220 35% 15%;
     --card-foreground: 44 50% 88%;
 
-    --popover: 215 35% 15%;
+    --popover: 220 35% 15%;
     --popover-foreground: 44 50% 88%;
 
-    --primary: 45 83% 52%;
-    --primary-foreground: 215 71% 24%;
+    --primary: 43 65% 47%;
+    --primary-foreground: 220 71% 10%;
 
-    --secondary: 215 71% 24%;
-    --secondary-foreground: 44 90% 92%;
+    --secondary: 220 33% 22%;
+    --secondary-foreground: 44 66% 83%;
 
-    --muted: 215 30% 20%;
+    --muted: 220 30% 20%;
     --muted-foreground: 44 20% 80%;
 
-    --accent: 171 65% 45%;
-    --accent-foreground: 215 71% 24%;
+    --accent: 41 40% 55%;
+    --accent-foreground: 220 71% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 31.8% 25%;
-    --input: 215 31.8% 25%;
-    --ring: 45 83% 52%;
+    --border: 220 31.8% 25%;
+    --input: 220 31.8% 25%;
+    --ring: 43 65% 47%;
 
     --radius: 0.75rem;
   }
@@ -46,20 +47,20 @@
   }
   
   body {
-    @apply bg-anka-pharaohBlue text-foreground font-sans;
+    @apply bg-anka-black text-foreground font-sans;
   }
   
-  /* Glass effect - updated for darker theme */
+  /* Glass effect - updated for darker theme with gold accents */
   .glass {
-    @apply bg-anka-navy/40 backdrop-blur-md border border-anka-gold/20 shadow-sm;
+    @apply bg-anka-navy/40 backdrop-blur-md border border-anka-gold/30 shadow-sm;
   }
   
   .glass-dark {
-    @apply bg-anka-nightBlue/80 backdrop-blur-md border border-anka-gold/10 shadow-md;
+    @apply bg-anka-black/80 backdrop-blur-md border border-anka-gold/20 shadow-md;
   }
   
   .glass-gold {
-    @apply bg-anka-gold/10 backdrop-blur-md border border-anka-gold/30 shadow-sm;
+    @apply bg-anka-gold/10 backdrop-blur-md border border-anka-gold/40 shadow-sm;
   }
   
   /* Animations */
@@ -101,7 +102,7 @@
     transition: opacity 300ms, transform 300ms;
   }
   
-  /* Custom scrollbar - updated for darker theme */
+  /* Custom scrollbar - updated for darker theme with gold accents */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -112,7 +113,7 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-anka-gold/30 rounded-full hover:bg-anka-gold/50 transition-colors;
+    @apply bg-anka-gold/40 rounded-full hover:bg-anka-gold/60 transition-colors;
   }
 }
 
@@ -141,25 +142,25 @@
     @apply text-lg leading-relaxed;
   }
   
-  /* Ancient papyrus texture effect - updated for darker theme */
+  /* Ancient papyrus texture effect - updated for darker theme with gold accents */
   .papyrus-texture {
     @apply bg-anka-sand/10 bg-opacity-60 relative;
     background-image: repeating-linear-gradient(
       45deg,
-      rgba(240, 196, 25, 0.05),
-      rgba(240, 196, 25, 0.05) 1px,
+      rgba(201, 162, 39, 0.07),
+      rgba(201, 162, 39, 0.07) 1px,
       transparent 1px,
       transparent 10px
     );
   }
   
-  /* Hieroglyphic accent borders - updated for darker theme */
+  /* Hieroglyphic accent borders - updated for darker theme with gold accents */
   .hieroglyphic-border {
-    @apply border-anka-gold/40 border-2 relative;
+    @apply border-anka-gold/50 border-2 relative;
     background-image: repeating-linear-gradient(
       to right,
-      rgba(240, 196, 25, 0.1),
-      rgba(240, 196, 25, 0.1) 3px,
+      rgba(201, 162, 39, 0.15),
+      rgba(201, 162, 39, 0.15) 3px,
       transparent 3px,
       transparent 15px
     );
