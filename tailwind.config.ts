@@ -73,7 +73,16 @@ export default {
           nightBlue: '#0A1428', // Very dark blue for backgrounds
           khaki: '#BDB76B', // Ancient fabric color
           darkGold: '#B8860B', // Darker gold
-          papyrus: '#E8DDB5' // Ancient papyrus
+          papyrus: '#E8DDB5', // Ancient papyrus
+          ruby: '#E63946', // Deep red
+          emerald: '#00A896', // Rich green
+          amethyst: '#9D4EDD', // Purple
+          sapphire: '#3A86FF', // Bright blue
+          amber: '#FB8500', // Orange
+          jade: '#2A9D8F', // Teal green
+          coral: '#FF6B6B', // Salmon color
+          indigo: '#4361EE', // Deep blue
+          ochre: '#E9C46A' // Mustard yellow
         }
       },
       borderRadius: {
@@ -121,6 +130,10 @@ export default {
         'float': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' }
+        },
+        'shimmer': {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' }
         }
       },
       animation: {
@@ -131,9 +144,15 @@ export default {
         'slide-in-right': 'slide-in-right 0.5s ease-out',
         'slide-in-left': 'slide-in-left 0.5s ease-out',
         'pulse-gentle': 'pulse-gentle 3s infinite ease-in-out',
-        'float': 'float 6s infinite ease-in-out'
+        'float': 'float 6s infinite ease-in-out',
+        'shimmer': 'shimmer 8s infinite linear'
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       }
     }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+

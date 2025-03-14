@@ -63,6 +63,14 @@
     @apply bg-anka-gold/10 backdrop-blur-md border border-anka-gold/40 shadow-sm;
   }
   
+  .glass-turquoise {
+    @apply bg-anka-turquoise/10 backdrop-blur-md border border-anka-turquoise/30 shadow-sm;
+  }
+  
+  .glass-terracotta {
+    @apply bg-anka-terracotta/10 backdrop-blur-md border border-anka-terracotta/30 shadow-sm;
+  }
+  
   /* Animations */
   .stagger-1 {
     animation-delay: 0.1s;
@@ -164,5 +172,30 @@
       transparent 3px,
       transparent 15px
     );
+  }
+  
+  /* Multi-color accents */
+  .gradient-text-gold-cream {
+    @apply bg-gradient-to-r from-anka-gold to-anka-cream bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-blue-turquoise {
+    @apply bg-gradient-to-r from-anka-blue to-anka-turquoise bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-terracotta-gold {
+    @apply bg-gradient-to-r from-anka-terracotta to-anka-gold bg-clip-text text-transparent;
+  }
+  
+  .gradient-bg-gold-terracotta {
+    @apply bg-gradient-to-r from-anka-gold to-anka-terracotta;
+  }
+  
+  .gradient-bg-turquoise-blue {
+    @apply bg-gradient-to-r from-anka-turquoise to-anka-blue;
+  }
+  
+  .gradient-bg-navy-black {
+    @apply bg-gradient-to-r from-anka-navy to-anka-black;
   }
 }
