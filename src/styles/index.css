@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
 :root {
   --background: 220 30% 12%;
   --foreground: 44 85% 92%;
@@ -41,44 +40,16 @@ body {
   @apply bg-anka-black text-foreground font-sans;
 }
 
-/* Component styles */
+/* Common Classes */
 .glass {
   @apply bg-anka-navy/30 backdrop-blur-md border border-anka-gold/40 shadow-lg;
-}
-
-.glass-dark {
-  @apply bg-anka-black/70 backdrop-blur-lg border border-anka-gold/30 shadow-lg;
-}
-
-.glass-gold {
-  @apply bg-anka-gold/15 backdrop-blur-lg border border-anka-gold/50 shadow-lg;
-}
-
-.glass-turquoise {
-  @apply bg-anka-turquoise/20 backdrop-blur-lg border border-anka-turquoise/40 shadow-lg;
 }
 
 .foggy-gold {
   @apply bg-anka-gold/20 backdrop-blur-xl border border-anka-gold/40 shadow-md;
 }
 
-.foggy-turquoise {
-  @apply bg-anka-turquoise/20 backdrop-blur-xl border border-anka-turquoise/40 shadow-md;
-}
-
-.foggy-blue {
-  @apply bg-anka-blue/20 backdrop-blur-xl border border-anka-blue/40 shadow-md;
-}
-
-.foggy-orange {
-  @apply bg-anka-amber/20 backdrop-blur-xl border border-anka-amber/40 shadow-md;
-}
-
-.foggy-purple {
-  @apply bg-anka-amethyst/20 backdrop-blur-xl border border-anka-amethyst/40 shadow-md;
-}
-
-/* Text styles */
+/* Text Styles */
 .heading-1 {
   @apply font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight;
 }
@@ -93,23 +64,6 @@ body {
 
 .subtitle {
   @apply text-sm md:text-base font-medium uppercase tracking-wider;
-}
-
-.body-large {
-  @apply text-lg leading-relaxed;
-}
-
-/* Gradient text */
-.gradient-text-gold-cream {
-  @apply bg-gradient-to-r from-anka-gold to-anka-cream bg-clip-text text-transparent;
-}
-
-.gradient-text-blue-turquoise {
-  @apply bg-gradient-to-r from-anka-blue to-anka-turquoise bg-clip-text text-transparent;
-}
-
-.gradient-text-terracotta-gold {
-  @apply bg-gradient-to-r from-anka-terracotta to-anka-gold bg-clip-text text-transparent;
 }
 
 /* Animations */
@@ -134,15 +88,6 @@ body {
 .stagger-1 { animation-delay: 0.1s; }
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
-
-/* Effects */
-.glow-gold {
-  box-shadow: 0 0 15px 2px rgba(201, 162, 39, 0.6);
-}
-
-.glow-turquoise {
-  box-shadow: 0 0 15px 2px rgba(78, 205, 196, 0.6);
-}
 
 /* Scrollbar */
 ::-webkit-scrollbar {

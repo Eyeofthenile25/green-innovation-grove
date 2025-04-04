@@ -20,10 +20,6 @@ const QAAccordion: React.FC<QAAccordionProps> = ({
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const toggleItem = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/50">
       {/* Header section */}
@@ -39,13 +35,12 @@ const QAAccordion: React.FC<QAAccordionProps> = ({
         {items.map((item, index) => (
           <div 
             key={index}
-            className={`border-b border-anka-gray/20 last:border-none ${openIndex === index ? 'pb-4' : ''} animate-fade-in-up`} 
-            style={{ animationDelay: `${index * 0.05}s` }}
+            className={`border-b border-anka-gray/20 last:border-none ${openIndex === index ? 'pb-4' : ''}`} 
           >
             {/* Question button */}
             <button
               className="w-full flex items-center justify-between py-4 text-left font-medium text-lg focus:outline-none"
-              onClick={() => toggleItem(index)}
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
               aria-expanded={openIndex === index}
             >
               <span className="pr-8">{item.question}</span>

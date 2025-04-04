@@ -26,7 +26,6 @@ const bgPattern = {
   backgroundPosition: '0 0, 20px 20px',
 };
 
-// Create a query client for React Query
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -34,11 +33,9 @@ const App = () => (
     <TooltipProvider>
       <UserProvider>
         <div className="min-h-screen bg-anka-black" style={bgPattern}>
-          {/* Toast notifications */}
           <Toaster />
           <Sonner />
           
-          {/* Main app router */}
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
