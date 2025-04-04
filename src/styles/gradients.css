@@ -1,0 +1,44 @@
+
+@layer utilities {
+  /* Multi-color gradient text variants */
+  .gradient-text-gold-cream {
+    @apply bg-gradient-to-r from-anka-gold to-anka-cream bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-blue-turquoise {
+    @apply bg-gradient-to-r from-anka-blue to-anka-turquoise bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-terracotta-gold {
+    @apply bg-gradient-to-r from-anka-terracotta to-anka-gold bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-purple-blue {
+    @apply bg-gradient-to-r from-anka-amethyst to-anka-blue bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-green-turquoise {
+    @apply bg-gradient-to-r from-anka-green to-anka-turquoise bg-clip-text text-transparent;
+  }
+  
+  /* Multi-color background gradients */
+  .gradient-bg-gold-terracotta {
+    @apply bg-gradient-to-r from-anka-gold to-anka-terracotta;
+  }
+  
+  .gradient-bg-turquoise-blue {
+    @apply bg-gradient-to-r from-anka-turquoise to-anka-blue;
+  }
+  
+  .gradient-bg-navy-black {
+    @apply bg-gradient-to-r from-anka-navy to-anka-black;
+  }
+  
+  .gradient-bg-purple-navy {
+    @apply bg-gradient-to-r from-anka-amethyst to-anka-navy;
+  }
+  
+  .gradient-bg-green-blue {
+    @apply bg-gradient-to-r from-anka-green to-anka-blue;
+  }
+}
