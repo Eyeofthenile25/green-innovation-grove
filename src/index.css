@@ -6,32 +6,32 @@
 @layer base {
   :root {
     --background: 220 30% 12%;
-    --foreground: 44 50% 88%;
+    --foreground: 44 85% 92%;
 
     --card: 220 35% 15%;
-    --card-foreground: 44 50% 88%;
+    --card-foreground: 44 85% 92%;
 
     --popover: 220 35% 15%;
-    --popover-foreground: 44 50% 88%;
+    --popover-foreground: 44 85% 92%;
 
-    --primary: 43 65% 47%;
+    --primary: 43 85% 55%;
     --primary-foreground: 220 71% 10%;
 
     --secondary: 220 33% 22%;
-    --secondary-foreground: 44 66% 83%;
+    --secondary-foreground: 44 85% 88%;
 
     --muted: 220 30% 20%;
-    --muted-foreground: 44 20% 80%;
+    --muted-foreground: 44 40% 85%;
 
-    --accent: 41 40% 55%;
+    --accent: 41 70% 65%;
     --accent-foreground: 220 71% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 31.8% 25%;
-    --input: 220 31.8% 25%;
-    --ring: 43 65% 47%;
+    --border: 220 31.8% 30%;
+    --input: 220 31.8% 30%;
+    --ring: 43 85% 55%;
 
     --radius: 0.75rem;
   }
@@ -50,25 +50,46 @@
     @apply bg-anka-black text-foreground font-sans;
   }
   
-  /* Glass effect - updated for darker theme with gold accents */
+  /* Glass effect - updated for brighter foggy theme with gold accents */
   .glass {
-    @apply bg-anka-navy/40 backdrop-blur-md border border-anka-gold/30 shadow-sm;
+    @apply bg-anka-navy/30 backdrop-blur-md border border-anka-gold/40 shadow-lg;
   }
   
   .glass-dark {
-    @apply bg-anka-black/80 backdrop-blur-md border border-anka-gold/20 shadow-md;
+    @apply bg-anka-black/70 backdrop-blur-lg border border-anka-gold/30 shadow-lg;
   }
   
   .glass-gold {
-    @apply bg-anka-gold/10 backdrop-blur-md border border-anka-gold/40 shadow-sm;
+    @apply bg-anka-gold/15 backdrop-blur-lg border border-anka-gold/50 shadow-lg;
   }
   
   .glass-turquoise {
-    @apply bg-anka-turquoise/10 backdrop-blur-md border border-anka-turquoise/30 shadow-sm;
+    @apply bg-anka-turquoise/20 backdrop-blur-lg border border-anka-turquoise/40 shadow-lg;
   }
   
   .glass-terracotta {
-    @apply bg-anka-terracotta/10 backdrop-blur-md border border-anka-terracotta/30 shadow-sm;
+    @apply bg-anka-terracotta/15 backdrop-blur-lg border border-anka-terracotta/40 shadow-lg;
+  }
+  
+  /* New foggy classes with brighter colors */
+  .foggy-gold {
+    @apply bg-anka-gold/20 backdrop-blur-xl border border-anka-gold/40 shadow-md;
+  }
+  
+  .foggy-turquoise {
+    @apply bg-anka-turquoise/20 backdrop-blur-xl border border-anka-turquoise/40 shadow-md;
+  }
+  
+  .foggy-blue {
+    @apply bg-anka-blue/20 backdrop-blur-xl border border-anka-blue/40 shadow-md;
+  }
+
+  .foggy-orange {
+    @apply bg-anka-amber/20 backdrop-blur-xl border border-anka-amber/40 shadow-md;
+  }
+  
+  .foggy-purple {
+    @apply bg-anka-amethyst/20 backdrop-blur-xl border border-anka-amethyst/40 shadow-md;
   }
   
   /* Animations */
@@ -110,7 +131,7 @@
     transition: opacity 300ms, transform 300ms;
   }
   
-  /* Custom scrollbar - updated for darker theme with gold accents */
+  /* Custom scrollbar - updated for brighter theme */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -121,7 +142,7 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-anka-gold/40 rounded-full hover:bg-anka-gold/60 transition-colors;
+    @apply bg-anka-gold/60 rounded-full hover:bg-anka-gold/80 transition-colors;
   }
 }
 
@@ -150,31 +171,31 @@
     @apply text-lg leading-relaxed;
   }
   
-  /* Ancient papyrus texture effect - updated for darker theme with gold accents */
+  /* Ancient papyrus texture effect - updated for brighter theme */
   .papyrus-texture {
-    @apply bg-anka-sand/10 bg-opacity-60 relative;
+    @apply bg-anka-sand/15 bg-opacity-80 relative;
     background-image: repeating-linear-gradient(
       45deg,
-      rgba(201, 162, 39, 0.07),
-      rgba(201, 162, 39, 0.07) 1px,
+      rgba(237, 192, 50, 0.12),
+      rgba(237, 192, 50, 0.12) 1px,
       transparent 1px,
       transparent 10px
     );
   }
   
-  /* Hieroglyphic accent borders - updated for darker theme with gold accents */
+  /* Hieroglyphic accent borders - updated for brighter theme */
   .hieroglyphic-border {
-    @apply border-anka-gold/50 border-2 relative;
+    @apply border-anka-gold/70 border-2 relative;
     background-image: repeating-linear-gradient(
       to right,
-      rgba(201, 162, 39, 0.15),
-      rgba(201, 162, 39, 0.15) 3px,
+      rgba(237, 192, 50, 0.25),
+      rgba(237, 192, 50, 0.25) 3px,
       transparent 3px,
       transparent 15px
     );
   }
   
-  /* Multi-color accents */
+  /* Multi-color gradient text variants */
   .gradient-text-gold-cream {
     @apply bg-gradient-to-r from-anka-gold to-anka-cream bg-clip-text text-transparent;
   }
@@ -187,6 +208,15 @@
     @apply bg-gradient-to-r from-anka-terracotta to-anka-gold bg-clip-text text-transparent;
   }
   
+  .gradient-text-purple-blue {
+    @apply bg-gradient-to-r from-anka-amethyst to-anka-blue bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-green-turquoise {
+    @apply bg-gradient-to-r from-anka-green to-anka-turquoise bg-clip-text text-transparent;
+  }
+  
+  /* Multi-color background gradients */
   .gradient-bg-gold-terracotta {
     @apply bg-gradient-to-r from-anka-gold to-anka-terracotta;
   }
@@ -197,5 +227,21 @@
   
   .gradient-bg-navy-black {
     @apply bg-gradient-to-r from-anka-navy to-anka-black;
+  }
+  
+  .gradient-bg-purple-navy {
+    @apply bg-gradient-to-r from-anka-amethyst to-anka-navy;
+  }
+  
+  .gradient-bg-green-blue {
+    @apply bg-gradient-to-r from-anka-green to-anka-blue;
+  }
+  
+  .glow-gold {
+    box-shadow: 0 0 15px 2px rgba(201, 162, 39, 0.6);
+  }
+  
+  .glow-turquoise {
+    box-shadow: 0 0 15px 2px rgba(78, 205, 196, 0.6);
   }
 }

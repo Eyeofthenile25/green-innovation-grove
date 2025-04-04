@@ -17,9 +17,9 @@ import Profile from "./pages/Profile";
 import ChatBubble from "./components/ChatBubble";
 import { UserProvider } from "./contexts/UserContext";
 
-// Add a background pattern with new colors
+// Add a brighter background pattern with new colors
 const bgPattern = {
-  backgroundImage: `radial-gradient(rgba(201, 162, 39, 0.1) 2px, transparent 2px), radial-gradient(rgba(201, 162, 39, 0.1) 2px, transparent 2px)`,
+  backgroundImage: `radial-gradient(rgba(201, 162, 39, 0.15) 2px, transparent 2px), radial-gradient(rgba(78, 205, 196, 0.1) 2px, transparent 2px)`,
   backgroundSize: '40px 40px',
   backgroundPosition: '0 0, 20px 20px',
 };
