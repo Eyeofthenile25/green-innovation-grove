@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Star, ShoppingCart } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 interface ProductCardProps {
   name: string;
@@ -26,15 +25,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
   tag = '',
   icon
 }) => {
+  // Calculate discounted price
   const discountedPrice = discount > 0 ? price * (1 - discount / 100) : price;
   
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="glass rounded-2xl overflow-hidden h-full flex flex-col"
-    >
+    <div className="glass rounded-2xl overflow-hidden h-full flex flex-col animate-fade-in-up">
+      {/* Product image */}
       <div className="relative">
         <img 
           src={image} 
@@ -42,12 +38,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
           className="w-full h-48 object-cover"
         />
         
+        {/* Discount badge */}
         {discount > 0 && (
           <div className="absolute top-3 left-3 bg-anka-ruby/90 text-white text-xs font-bold px-2 py-1 rounded-md">
             {discount}% OFF
           </div>
         )}
         
+        {/* Product tag */}
         {tag && (
           <div className="absolute top-3 right-3 bg-anka-black/80 text-anka-gold text-xs font-medium px-2 py-1 rounded-md border border-anka-gold/30">
             {tag}
@@ -55,12 +53,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
         )}
       </div>
       
+      {/* Product details */}
       <div className="p-5 flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-lg font-semibold text-white">{name}</h3>
           {icon && <span>{icon}</span>}
         </div>
         
+        {/* Rating */}
         <div className="flex items-center mb-1">
           <div className="flex items-center text-amber-400 mr-2">
             {[...Array(5)].map((_, i) => (
@@ -74,10 +74,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <span className="text-xs text-white/70">{rating.toFixed(1)}</span>
         </div>
         
+        {/* Description */}
         <div className="text-sm text-white/70 mb-4 line-clamp-2 flex-grow">
           {description}
         </div>
         
+        {/* Price and add to cart */}
         <div className="mt-auto">
           <div className="flex items-center justify-between">
             <div>
@@ -97,7 +99,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

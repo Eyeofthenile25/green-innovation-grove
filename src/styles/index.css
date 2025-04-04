@@ -1,8 +1,159 @@
 
-/* Import all CSS files */
-@import './base.css';
-@import './components.css';
-@import './animations.css';
-@import './utilities.css';
-@import './gradients.css';
-@import './effects.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  --background: 220 30% 12%;
+  --foreground: 44 85% 92%;
+  --card: 220 35% 15%;
+  --card-foreground: 44 85% 92%;
+  --popover: 220 35% 15%;
+  --popover-foreground: 44 85% 92%;
+  --primary: 43 85% 55%;
+  --primary-foreground: 220 71% 10%;
+  --secondary: 220 33% 22%;
+  --secondary-foreground: 44 85% 88%;
+  --muted: 220 30% 20%;
+  --muted-foreground: 44 40% 85%;
+  --accent: 41 70% 65%;
+  --accent-foreground: 220 71% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 220 31.8% 30%;
+  --input: 220 31.8% 30%;
+  --ring: 43 85% 55%;
+  --radius: 0.75rem;
+}
+
+* {
+  @apply border-border;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-anka-black text-foreground font-sans;
+}
+
+/* Component styles */
+.glass {
+  @apply bg-anka-navy/30 backdrop-blur-md border border-anka-gold/40 shadow-lg;
+}
+
+.glass-dark {
+  @apply bg-anka-black/70 backdrop-blur-lg border border-anka-gold/30 shadow-lg;
+}
+
+.glass-gold {
+  @apply bg-anka-gold/15 backdrop-blur-lg border border-anka-gold/50 shadow-lg;
+}
+
+.glass-turquoise {
+  @apply bg-anka-turquoise/20 backdrop-blur-lg border border-anka-turquoise/40 shadow-lg;
+}
+
+.foggy-gold {
+  @apply bg-anka-gold/20 backdrop-blur-xl border border-anka-gold/40 shadow-md;
+}
+
+.foggy-turquoise {
+  @apply bg-anka-turquoise/20 backdrop-blur-xl border border-anka-turquoise/40 shadow-md;
+}
+
+.foggy-blue {
+  @apply bg-anka-blue/20 backdrop-blur-xl border border-anka-blue/40 shadow-md;
+}
+
+.foggy-orange {
+  @apply bg-anka-amber/20 backdrop-blur-xl border border-anka-amber/40 shadow-md;
+}
+
+.foggy-purple {
+  @apply bg-anka-amethyst/20 backdrop-blur-xl border border-anka-amethyst/40 shadow-md;
+}
+
+/* Text styles */
+.heading-1 {
+  @apply font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight;
+}
+
+.heading-2 {
+  @apply font-bold text-3xl md:text-4xl tracking-tight;
+}
+
+.heading-3 {
+  @apply font-semibold text-2xl md:text-3xl;
+}
+
+.subtitle {
+  @apply text-sm md:text-base font-medium uppercase tracking-wider;
+}
+
+.body-large {
+  @apply text-lg leading-relaxed;
+}
+
+/* Gradient text */
+.gradient-text-gold-cream {
+  @apply bg-gradient-to-r from-anka-gold to-anka-cream bg-clip-text text-transparent;
+}
+
+.gradient-text-blue-turquoise {
+  @apply bg-gradient-to-r from-anka-blue to-anka-turquoise bg-clip-text text-transparent;
+}
+
+.gradient-text-terracotta-gold {
+  @apply bg-gradient-to-r from-anka-terracotta to-anka-gold bg-clip-text text-transparent;
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+
+/* Effects */
+.glow-gold {
+  box-shadow: 0 0 15px 2px rgba(201, 162, 39, 0.6);
+}
+
+.glow-turquoise {
+  box-shadow: 0 0 15px 2px rgba(78, 205, 196, 0.6);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-anka-gold/60 rounded-full hover:bg-anka-gold/80 transition-colors;
+}
