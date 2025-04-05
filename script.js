@@ -11,6 +11,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
+  // Dropdown Menu Toggle
+  const menuButton = document.getElementById('menu-button');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+  
+  if (menuButton && dropdownMenu) {
+    menuButton.addEventListener('click', function(event) {
+      // Prevent the click from propagating to the document
+      event.stopPropagation();
+      dropdownMenu.classList.toggle('show');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!menuButton.contains(event.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  }
+  
   // Tab Navigation for Awareness Page
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabPanes = document.querySelectorAll('.tab-pane');
