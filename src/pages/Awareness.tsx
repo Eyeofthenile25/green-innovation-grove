@@ -1,6 +1,7 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Video, Lightbulb, ExternalLink } from 'lucide-react';
+import { BookOpen, Video, Lightbulb, ExternalLink, BookOpenCheck, Tool, Flame } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import QAAccordion from '../components/QAAccordion';
@@ -8,6 +9,8 @@ import VideoCard from '../components/VideoCard';
 import { Button } from '@/components/ui/button';
 
 const Awareness = () => {
+  const [activeTab, setActiveTab] = useState('qa');
+
   // Define QA items for the accordion
   const qaItems = [
     {
@@ -141,8 +144,37 @@ const Awareness = () => {
           </div>
         </section>
 
+        {/* Tab Navigation */}
+        <div className="px-6 mb-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex justify-center flex-wrap gap-4">
+              <button 
+                className={`tab-button flex items-center ${activeTab === 'qa' ? 'active' : ''}`}
+                onClick={() => setActiveTab('qa')}
+              >
+                <BookOpenCheck size={18} className="mr-2" />
+                Q&A Sessions
+              </button>
+              <button 
+                className={`tab-button flex items-center ${activeTab === 'videos' ? 'active' : ''}`}
+                onClick={() => setActiveTab('videos')}
+              >
+                <Video size={18} className="mr-2" />
+                Short Videos
+              </button>
+              <button 
+                className={`tab-button flex items-center ${activeTab === 'diy' ? 'active' : ''}`}
+                onClick={() => setActiveTab('diy')}
+              >
+                <Tool size={18} className="mr-2" />
+                DIY Projects
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Q&A Section */}
-        <section className="px-6 mb-20 relative">
+        <section className={`px-6 mb-20 relative ${activeTab === 'qa' ? 'block' : 'hidden'}`}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4 relative inline-block">
@@ -160,7 +192,7 @@ const Awareness = () => {
         </section>
 
         {/* Video Section */}
-        <section className="px-6 mb-20 relative">
+        <section className={`px-6 mb-20 relative ${activeTab === 'videos' ? 'block' : 'hidden'}`}>
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4 relative inline-block">
@@ -194,7 +226,7 @@ const Awareness = () => {
         </section>
 
         {/* DIY Projects Section */}
-        <section className="px-6 relative">
+        <section className={`px-6 relative ${activeTab === 'diy' ? 'block' : 'hidden'}`}>
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4 relative inline-block">

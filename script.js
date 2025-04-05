@@ -174,4 +174,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial animation
     setTimeout(animateElements, 100);
   }
+  
+  // Quiz handling
+  const startQuizButtons = document.querySelectorAll('.start-quiz-btn');
+  if (startQuizButtons.length > 0) {
+    startQuizButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const quizId = this.getAttribute('data-quiz-id');
+        console.log(`Starting quiz ID: ${quizId}`);
+        // In a real implementation, this would show the quiz interface
+      });
+    });
+  }
+  
+  // Game handling
+  const startGameButtons = document.querySelectorAll('.start-game-btn');
+  if (startGameButtons.length > 0) {
+    startGameButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const gameId = this.getAttribute('data-game-id');
+        console.log(`Starting game ID: ${gameId}`);
+        // In a real implementation, this would launch the game
+      });
+    });
+  }
 });

@@ -1,89 +1,47 @@
 
 import React from 'react';
+import { Trophy, Star, Clock, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Clock, Trophy, Gamepad, Zap, Wind, Droplet, LightbulbIcon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface GameCardProps {
   title: string;
   description: string;
   image: string;
-  category: string;
+  pointsValue: number;
   difficulty: 'Easy' | 'Medium' | 'Hard';
-  pointsReward: number;
-  estimatedTime: string;
-  theme: 'solar' | 'wind' | 'water' | 'efficiency';
+  duration: string;
+  players?: string;
+  onPlay?: () => void;
+  category: string;
+  icon?: React.ReactNode;
 }
 
 const GameCard: React.FC<GameCardProps> = ({
   title,
   description,
   image,
-  category,
+  pointsValue,
   difficulty,
-  pointsReward,
-  estimatedTime,
-  theme
+  duration,
+  players,
+  onPlay,
+  category,
+  icon
 }) => {
-  // Theme-based styling
-  const getThemeClasses = () => {
-    switch (theme) {
-      case 'solar':
-        return {
-          icon: <Zap className="text-amber-400" />,
-          glassClass: 'glass-gold',
-          accentClass: 'border-amber-400/30',
-          buttonClass: 'bg-amber-500 hover:bg-amber-600 text-black'
-        };
-      case 'wind':
-        return {
-          icon: <Wind className="text-blue-400" />,
-          glassClass: 'glass-dark',
-          accentClass: 'border-blue-400/30',
-          buttonClass: 'bg-blue-500 hover:bg-blue-600 text-white'
-        };
-      case 'water':
-        return {
-          icon: <Droplet className="text-cyan-400" />,
-          glassClass: 'glass-turquoise',
-          accentClass: 'border-cyan-400/30',
-          buttonClass: 'bg-cyan-500 hover:bg-cyan-600 text-white'
-        };
-      case 'efficiency':
-        return {
-          icon: <LightbulbIcon className="text-green-400" />,
-          glassClass: 'glass',
-          accentClass: 'border-green-400/30',
-          buttonClass: 'bg-green-500 hover:bg-green-600 text-white'
-        };
-      default:
-        return {
-          icon: <Gamepad className="text-anka-gold" />,
-          glassClass: 'glass',
-          accentClass: 'border-anka-gold/30',
-          buttonClass: 'bg-anka-gold hover:bg-anka-gold/90 text-black'
-        };
-    }
-  };
-
-  const themeClasses = getThemeClasses();
-  
-  // Difficulty color
-  const getDifficultyColor = () => {
-    switch (difficulty) {
-      case 'Easy': return 'text-green-400';
-      case 'Medium': return 'text-amber-400';
-      case 'Hard': return 'text-red-400';
-      default: return 'text-gray-400';
-    }
-  };
-
+  // Set difficulty color
+  const difficultyColor = 
+    difficulty === 'Easy' 
+      ? 'bg-green-500/20 text-green-400 border-green-500/30' 
+      : difficulty === 'Medium' 
+        ? 'bg-amber-500/20 text-amber-400 border-amber-500/30'
+        : 'bg-red-500/20 text-red-400 border-red-500/30';
+        
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`${themeClasses.glassClass} rounded-2xl overflow-hidden h-full flex flex-col ${themeClasses.accentClass}`}
+      className="glass-dark rounded-2xl overflow-hidden border border-white/10 shadow-lg hover:scale-[1.02] transition-transform duration-300"
     >
       <div className="relative">
         <img 
@@ -91,47 +49,57 @@ const GameCard: React.FC<GameCardProps> = ({
           alt={title} 
           className="w-full h-48 object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-anka-black/70 to-transparent"></div>
-        <div className="absolute bottom-4 left-4 flex items-center">
-          <div className="flex items-center bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full">
-            {themeClasses.icon}
-            <span className="ml-1 text-xs text-white/90 font-medium">{category}</span>
+        <div className="absolute inset-0 bg-gradient-to-t from-anka-black to-transparent"></div>
+        
+        <div className="absolute bottom-3 left-3">
+          <span className="px-3 py-1 rounded-full text-xs font-medium bg-anka-navy/80 text-white border border-anka-turquoise/30">
+            {category}
+          </span>
+        </div>
+        
+        <div className="absolute top-3 right-3">
+          <div className="flex items-center bg-anka-gold/90 rounded-full px-2 py-1 text-anka-black">
+            <Trophy size={14} className="mr-1" />
+            <span className="text-xs font-bold">{pointsValue} pts</span>
           </div>
         </div>
       </div>
       
-      <div className="p-5 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+      <div className="p-5">
+        <h3 className="text-xl font-semibold text-white mb-2 flex items-center">
+          {icon && <span className="mr-2">{icon}</span>}
+          {title}
+        </h3>
         
-        <p className="text-sm text-white/70 mb-4 flex-grow">
+        <p className="text-anka-sand/70 text-sm mb-4 line-clamp-3">
           {description}
         </p>
         
-        <div className="flex items-center justify-between mb-4 text-sm">
-          <div className="flex items-center">
-            <Clock size={14} className="text-anka-gray mr-1" />
-            <span className="text-anka-gray">{estimatedTime}</span>
+        <div className="flex flex-wrap gap-2 mb-4">
+          <div className={`px-2 py-1 rounded-md text-xs font-medium border ${difficultyColor} flex items-center`}>
+            <Star size={12} className="mr-1" />
+            {difficulty}
           </div>
           
-          <div className="flex items-center">
-            <span className={`font-medium ${getDifficultyColor()}`}>{difficulty}</span>
+          <div className="px-2 py-1 rounded-md text-xs font-medium bg-anka-navy/30 text-anka-cream/90 border border-anka-cream/20 flex items-center">
+            <Clock size={12} className="mr-1" />
+            {duration}
           </div>
+          
+          {players && (
+            <div className="px-2 py-1 rounded-md text-xs font-medium bg-anka-navy/30 text-anka-cream/90 border border-anka-cream/20 flex items-center">
+              <Users size={12} className="mr-1" />
+              {players}
+            </div>
+          )}
         </div>
         
-        <div className="flex items-center justify-between mb-5">
-          <div className="flex items-center">
-            <Trophy size={16} className="text-anka-gold mr-1" />
-            <span className="text-anka-gold font-medium">{pointsReward} pts</span>
-          </div>
-        </div>
-        
-        <Button 
-          className={`w-full py-2 font-medium text-sm ${themeClasses.buttonClass}`}
-          onClick={() => console.log(`Starting game: ${title}`)}
+        <button
+          onClick={onPlay}
+          className="w-full py-2.5 px-4 bg-gradient-to-r from-anka-turquoise to-anka-blue text-white rounded-xl font-medium transition-colors hover:from-anka-turquoise/90 hover:to-anka-blue/90 flex justify-center items-center"
         >
-          <Gamepad className="mr-1" size={16} />
-          Play Game
-        </Button>
+          Play Now
+        </button>
       </div>
     </motion.div>
   );
