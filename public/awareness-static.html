@@ -1,0 +1,995 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Innovation Grove - Awareness</title>
+  <style>
+    :root {
+      --anka-black: #0D1117;
+      --anka-navy: #161F2C;
+      --anka-navy-light: #1F2937;
+      --anka-blue: #3B82F6;
+      --anka-turquoise: #06B6D4;
+      --anka-gold: #C9A227;
+      --anka-cream: #E7DFC6;
+      --anka-sand: #D1C7A3;
+      --anka-terracotta: #C45A2D;
+      --anka-gray: #4B5563;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    
+    body {
+      background-color: var(--anka-black);
+      color: var(--anka-cream);
+      min-height: 100vh;
+      background-image: radial-gradient(rgba(201, 162, 39, 0.1) 2px, transparent 2px), radial-gradient(rgba(201, 162, 39, 0.1) 2px, transparent 2px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+    }
+    
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(13, 17, 23, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    
+    .navbar__logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      background: linear-gradient(to right, var(--anka-gold), var(--anka-cream));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .navbar__links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    
+    .navbar__links a {
+      color: var(--anka-cream);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+    
+    .navbar__links a:hover {
+      color: var(--anka-gold);
+    }
+    
+    /* Hero section */
+    .hero {
+      padding: 7rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .hero__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(6, 182, 212, 0.15);
+      color: var(--anka-turquoise);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .hero__title {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, var(--anka-gold), var(--anka-cream), var(--anka-sand));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 48rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero__subtitle {
+      font-size: 1.125rem;
+      color: rgba(231, 223, 198, 0.8);
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Q&A Section */
+    .qa {
+      padding: 5rem 1.5rem;
+      position: relative;
+      max-width: 64rem;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      display: inline-block;
+      font-size: 1.875rem;
+      margin-bottom: 1rem;
+      position: relative;
+      background: linear-gradient(to right, var(--anka-cream), var(--anka-sand));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 100%;
+      height: 0.25rem;
+      background: linear-gradient(to right, rgba(201, 162, 39, 0.8), rgba(201, 162, 39, 0.2));
+    }
+    
+    .section-title p {
+      color: rgba(231, 223, 198, 0.7);
+    }
+    
+    .accordion {
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .accordion__item {
+      border-bottom: 1px solid rgba(75, 85, 99, 0.2);
+    }
+    
+    .accordion__item:last-child {
+      border-bottom: none;
+    }
+    
+    .accordion__button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 1.125rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: #1A1F2C;
+    }
+    
+    .accordion__icon {
+      transition: transform 0.2s;
+    }
+    
+    .accordion__button[aria-expanded="true"] .accordion__icon {
+      transform: rotate(180deg);
+      color: var(--anka-blue);
+    }
+    
+    .accordion__panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    
+    .accordion__content {
+      padding: 0 1rem 1rem;
+      color: rgba(26, 31, 44, 0.7);
+    }
+    
+    /* Videos Section */
+    .videos {
+      padding: 5rem 1.5rem;
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+    
+    .videos__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .video-card {
+      background-color: rgba(22, 31, 44, 0.8);
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s;
+    }
+    
+    .video-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .video-card__thumbnail {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+      overflow: hidden;
+    }
+    
+    .video-card__thumbnail img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .video-card__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .video-card:hover .video-card__overlay {
+      opacity: 1;
+    }
+    
+    .video-card__play {
+      width: 3rem;
+      height: 3rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .video-card__info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 0.75rem;
+    }
+    
+    .video-card__content {
+      padding: 1rem;
+    }
+    
+    .video-card__title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .video-card__description {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Projects Section */
+    .projects {
+      padding: 5rem 1.5rem;
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+    
+    .projects__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .project-card {
+      background-color: rgba(13, 17, 23, 0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card__indicator {
+      height: 0.5rem;
+      width: 100%;
+    }
+    
+    .project-card__content {
+      padding: 1.5rem;
+    }
+    
+    .project-card__title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .project-card__description {
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: rgba(231, 223, 198, 0.7);
+    }
+    
+    .project-card__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    
+    .project-card__difficulty {
+      background-color: var(--anka-navy);
+      color: var(--anka-cream);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .project-card__materials {
+      margin-bottom: 1rem;
+    }
+    
+    .project-card__materials-title {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--anka-gold);
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-card__materials-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.25rem 0.5rem;
+      list-style: none;
+    }
+    
+    .project-card__materials-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+      color: rgba(231, 223, 198, 0.7);
+    }
+    
+    .project-card__materials-item::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: rgba(201, 162, 39, 0.6);
+      margin-right: 6px;
+    }
+    
+    .project-card__button {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 0.375rem;
+      background: linear-gradient(to right, var(--anka-gold), var(--anka-terracotta));
+      color: var(--anka-black);
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    
+    .project-card__button:hover {
+      opacity: 0.9;
+    }
+    
+    .more-projects {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    
+    .more-projects__button {
+      padding: 1.5rem 2rem;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(to right, var(--anka-gold), var(--anka-terracotta));
+      color: var(--anka-black);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .more-projects__button:hover {
+      background: linear-gradient(to right, #d3ac2b, #d26835);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: rgba(13, 17, 23, 0.9);
+      padding: 3rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+    
+    .footer__logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, var(--anka-gold), var(--anka-cream));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .footer__tagline {
+      font-size: 0.875rem;
+      color: rgba(231, 223, 198, 0.6);
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer__links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer__link {
+      color: var(--anka-cream);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+    
+    .footer__link:hover {
+      color: var(--anka-gold);
+    }
+    
+    .footer__copyright {
+      font-size: 0.75rem;
+      color: rgba(231, 223, 198, 0.4);
+    }
+    
+    /* Decorative elements */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      z-index: -1;
+      opacity: 0.6;
+    }
+    
+    .blob--blue {
+      width: 300px;
+      height: 300px;
+      top: 20%;
+      right: 5%;
+      background-color: rgba(6, 182, 212, 0.1);
+    }
+    
+    .blob--gold {
+      width: 400px;
+      height: 400px;
+      top: 30%;
+      left: 5%;
+      background-color: rgba(201, 162, 39, 0.1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero__title {
+        font-size: 2rem;
+      }
+      
+      .hero__subtitle {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.5rem;
+      }
+      
+      .project-card__materials-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .navbar__links {
+        display: none;
+      }
+      
+      .navbar__mobile-button {
+        display: block;
+      }
+    }
+    
+    /* Mobile menu */
+    .navbar__mobile-button {
+      background: none;
+      border: none;
+      color: var(--anka-cream);
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+    }
+    
+    .navbar__mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--anka-black);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-100%);
+      transition: transform 0.3s;
+    }
+    
+    .navbar__mobile-menu.active {
+      transform: translateY(0);
+    }
+    
+    .navbar__mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--anka-cream);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .navbar__mobile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    .navbar__mobile-links a {
+      color: var(--anka-cream);
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .navbar__mobile-links a:hover {
+      color: var(--anka-gold);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fadeIn {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    .delay-100 {
+      animation-delay: 0.1s;
+    }
+    
+    .delay-200 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-300 {
+      animation-delay: 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__logo">Anka</div>
+    <ul class="navbar__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/awareness" class="active">Awareness</a></li>
+      <li><a href="/ai-chat">AI Chat</a></li>
+      <li><a href="/volunteering">Volunteering</a></li>
+      <li><a href="/marketplace">Marketplace</a></li>
+      <li><a href="/quizzes">Quizzes</a></li>
+    </ul>
+    <button class="navbar__mobile-button" aria-label="Open menu">☰</button>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="navbar__mobile-menu">
+    <button class="navbar__mobile-close" aria-label="Close menu">✕</button>
+    <ul class="navbar__mobile-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/awareness">Awareness</a></li>
+      <li><a href="/ai-chat">AI Chat</a></li>
+      <li><a href="/volunteering">Volunteering</a></li>
+      <li><a href="/marketplace">Marketplace</a></li>
+      <li><a href="/quizzes">Quizzes</a></li>
+    </ul>
+  </div>
+  
+  <!-- Decorative blobs -->
+  <div class="blob blob--blue"></div>
+  <div class="blob blob--gold"></div>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__tag animate-fadeIn">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      </svg>
+      <span>Educational Resources</span>
+    </div>
+    <h1 class="hero__title animate-fadeIn delay-100">Learn About Renewable Energy</h1>
+    <p class="hero__subtitle animate-fadeIn delay-200">Discover sustainable energy through interactive content, expert Q&As, and hands-on tutorials.</p>
+  </section>
+  
+  <!-- Q&A Section -->
+  <section class="qa">
+    <div class="section-title">
+      <h2>Common Questions</h2>
+      <p>Find answers to frequently asked questions about renewable energy</p>
+    </div>
+    <div class="accordion">
+      <div class="accordion__item">
+        <button class="accordion__button" aria-expanded="false">
+          <span>What is renewable energy?</span>
+          <span class="accordion__icon">▼</span>
+        </button>
+        <div class="accordion__panel">
+          <div class="accordion__content">
+            Renewable energy comes from sources that naturally replenish themselves, such as sunlight, wind, rain, tides, waves, and geothermal heat. Unlike fossil fuels, these energy sources won't run out and generally cause less environmental impact.
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__button" aria-expanded="false">
+          <span>Why is renewable energy important?</span>
+          <span class="accordion__icon">▼</span>
+        </button>
+        <div class="accordion__panel">
+          <div class="accordion__content">
+            Renewable energy is crucial for reducing greenhouse gas emissions, decreasing dependence on imported fuels, creating economic development and jobs, and providing energy access to the billion people living without electricity.
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__button" aria-expanded="false">
+          <span>How do solar panels work?</span>
+          <span class="accordion__icon">▼</span>
+        </button>
+        <div class="accordion__panel">
+          <div class="accordion__content">
+            Solar panels convert sunlight into electricity through the photovoltaic effect. When sunlight hits the semiconductor material in solar cells, it knocks electrons loose, creating an electric current that can be captured and used as electricity.
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__button" aria-expanded="false">
+          <span>What is the most efficient renewable energy source?</span>
+          <span class="accordion__icon">▼</span>
+        </button>
+        <div class="accordion__panel">
+          <div class="accordion__content">
+            The efficiency of renewable energy sources varies by location and implementation. Hydroelectric power generally has the highest efficiency rate at 90%, followed by wind turbines at around 35-45%, while solar panels typically convert 15-20% of sunlight into electricity.
+          </div>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <button class="accordion__button" aria-expanded="false">
+          <span>How can I implement renewable energy in my home?</span>
+          <span class="accordion__icon">▼</span>
+        </button>
+        <div class="accordion__panel">
+          <div class="accordion__content">
+            You can start with solar panels on your roof, small wind turbines if you have the space, solar water heaters, geothermal heat pumps, or even micro-hydropower systems if you have flowing water on your property. Many governments offer incentives to offset installation costs.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Videos Section -->
+  <section class="videos">
+    <div class="section-title">
+      <h2>Quick Learning Videos</h2>
+      <p>Watch bite-sized videos explaining renewable energy concepts</p>
+    </div>
+    <div class="videos__grid">
+      <div class="video-card animate-fadeIn">
+        <div class="video-card__thumbnail">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Solar energy thumbnail">
+          <div class="video-card__overlay">
+            <div class="video-card__play">
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <span>2:30</span>
+            <span>1.2K views</span>
+          </div>
+        </div>
+        <div class="video-card__content">
+          <h3 class="video-card__title">Understanding Solar Energy</h3>
+          <p class="video-card__description">A quick overview of how solar energy works and its benefits</p>
+        </div>
+      </div>
+      
+      <div class="video-card animate-fadeIn delay-100">
+        <div class="video-card__thumbnail">
+          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Wind power thumbnail">
+          <div class="video-card__overlay">
+            <div class="video-card__play">
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <span>3:15</span>
+            <span>980 views</span>
+          </div>
+        </div>
+        <div class="video-card__content">
+          <h3 class="video-card__title">Wind Power Basics</h3>
+          <p class="video-card__description">Learn the fundamentals of wind energy in just a few minutes</p>
+        </div>
+      </div>
+      
+      <div class="video-card animate-fadeIn delay-200">
+        <div class="video-card__thumbnail">
+          <img src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Hydro power thumbnail">
+          <div class="video-card__overlay">
+            <div class="video-card__play">
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+          <div class="video-card__info">
+            <span>4:10</span>
+            <span>1.5K views</span>
+          </div>
+        </div>
+        <div class="video-card__content">
+          <h3 class="video-card__title">Hydro Power Revolution</h3>
+          <p class="video-card__description">Discover how water can generate clean electricity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- DIY Projects Section -->
+  <section class="projects">
+    <div class="section-title">
+      <h2>DIY Projects</h2>
+      <p>Start your renewable energy journey with these hands-on projects</p>
+    </div>
+    <div class="projects__grid">
+      <div class="project-card">
+        <div class="project-card__indicator" style="background: linear-gradient(to right, #FFCC33, #FF6666);"></div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">Solar-Powered Phone Charger</h3>
+          <p class="project-card__description">Build a portable device that uses sunlight to charge your devices</p>
+          <div class="project-card__meta">
+            <span class="project-card__difficulty">Beginner</span>
+          </div>
+          <div class="project-card__materials">
+            <h4 class="project-card__materials-title">Materials:</h4>
+            <ul class="project-card__materials-list">
+              <li class="project-card__materials-item">Small solar panel</li>
+              <li class="project-card__materials-item">USB port</li>
+              <li class="project-card__materials-item">Battery</li>
+              <li class="project-card__materials-item">Enclosure</li>
+            </ul>
+          </div>
+          <button class="project-card__button">View Project</button>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-card__indicator" style="background: linear-gradient(to right, #33CCFF, #3366FF);"></div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">Mini Wind Turbine</h3>
+          <p class="project-card__description">Construct a small wind turbine that can power LED lights</p>
+          <div class="project-card__meta">
+            <span class="project-card__difficulty">Intermediate</span>
+          </div>
+          <div class="project-card__materials">
+            <h4 class="project-card__materials-title">Materials:</h4>
+            <ul class="project-card__materials-list">
+              <li class="project-card__materials-item">PVC pipes</li>
+              <li class="project-card__materials-item">DC motor</li>
+              <li class="project-card__materials-item">Blades</li>
+              <li class="project-card__materials-item">LED lights</li>
+            </ul>
+          </div>
+          <button class="project-card__button">View Project</button>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-card__indicator" style="background: linear-gradient(to right, #CC66FF, #FF66CC);"></div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">Home Energy Monitor</h3>
+          <p class="project-card__description">Create a system to track your household energy consumption</p>
+          <div class="project-card__meta">
+            <span class="project-card__difficulty">Advanced</span>
+          </div>
+          <div class="project-card__materials">
+            <h4 class="project-card__materials-title">Materials:</h4>
+            <ul class="project-card__materials-list">
+              <li class="project-card__materials-item">Raspberry Pi</li>
+              <li class="project-card__materials-item">Current sensors</li>
+              <li class="project-card__materials-item">Display screen</li>
+              <li class="project-card__materials-item">Software</li>
+            </ul>
+          </div>
+          <button class="project-card__button">View Project</button>
+        </div>
+      </div>
+    </div>
+    <div class="more-projects">
+      <button class="more-projects__button">
+        Explore More Projects
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </button>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__logo">Anka</div>
+    <p class="footer__tagline">Empowering renewable energy adoption through education and community</p>
+    <div class="footer__links">
+      <a href="/" class="footer__link">Home</a>
+      <a href="/about" class="footer__link">About Us</a>
+      <a href="/awareness" class="footer__link">Awareness</a>
+      <a href="/ai-chat" class="footer__link">AI Chat</a>
+      <a href="/volunteering" class="footer__link">Volunteering</a>
+      <a href="/marketplace" class="footer__link">Marketplace</a>
+      <a href="/quizzes" class="footer__link">Quizzes</a>
+      <a href="/contact" class="footer__link">Contact</a>
+    </div>
+    <p class="footer__copyright">© 2025 Anka. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // Accordion functionality
+    document.querySelectorAll('.accordion__button').forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !expanded);
+        
+        const panel = button.nextElementSibling;
+        const content = panel.querySelector('.accordion__content');
+        
+        if (!expanded) {
+          panel.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+          panel.style.maxHeight = 0;
+        }
+      });
+    });
+    
+    // Mobile menu
+    const mobileButton = document.querySelector('.navbar__mobile-button');
+    const mobileMenu = document.querySelector('.navbar__mobile-menu');
+    const mobileClose = document.querySelector('.navbar__mobile-close');
+    
+    mobileButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    mobileClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    // Video cards
+    document.querySelectorAll('.video-card').forEach(card => {
+      card.addEventListener('click', () => {
+        alert('Video player would open here. This is a static HTML demo.');
+      });
+    });
+    
+    // Project buttons
+    document.querySelectorAll('.project-card__button').forEach(button => {
+      button.addEventListener('click', () => {
+        alert('Project details would open here. This is a static HTML demo.');
+      });
+    });
+    
+    // More projects button
+    document.querySelector('.more-projects__button').addEventListener('click', () => {
+      alert('More projects would load here. This is a static HTML demo.');
+    });
+    
+    // Add active class to current nav item
+    document.querySelectorAll('.navbar__links a').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Animation on scroll
+    const animatedElements = document.querySelectorAll('.qa, .videos, .projects');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeIn');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    animatedElements.forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
