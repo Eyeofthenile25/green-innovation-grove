@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Video, Lightbulb, ExternalLink, BookOpenCheck, Wrench, Flame } from 'lucide-react';
+import { BookOpen, Video, Lightbulb, ExternalLink } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import QAAccordion from '../components/QAAccordion';
@@ -8,8 +9,7 @@ import VideoCard from '../components/VideoCard';
 import { Button } from '@/components/ui/button';
 
 const Awareness = () => {
-  const [activeTab, setActiveTab] = useState('qa');
-
+  // Define QA items for the accordion
   const qaItems = [
     {
       question: "What is renewable energy?",
@@ -30,26 +30,6 @@ const Awareness = () => {
     {
       question: "How can I implement renewable energy in my home?",
       answer: "You can start with solar panels on your roof, small wind turbines if you have the space, solar water heaters, geothermal heat pumps, or even micro-hydropower systems if you have flowing water on your property. Many governments offer incentives to offset installation costs."
-    },
-    {
-      question: "What are the different types of renewable energy?",
-      answer: "The main types of renewable energy are solar, wind, hydroelectric, geothermal, and biomass. Each has different applications and benefits depending on location, climate, and available resources."
-    },
-    {
-      question: "How much does it cost to switch to renewable energy?",
-      answer: "The cost varies widely depending on the type of renewable energy, scale of implementation, and location. While initial installation costs can be higher than conventional energy sources, renewable energy typically offers lower operational costs and long-term savings. Many regions also offer tax incentives, rebates, and financing options to reduce upfront costs."
-    },
-    {
-      question: "What is the carbon footprint of renewable energy?",
-      answer: "Renewable energy technologies have significantly lower lifecycle carbon emissions compared to fossil fuels. While there are some emissions associated with manufacturing, installation, and maintenance, the operational phase of renewables produces virtually zero direct emissions. Solar and wind energy have among the lowest carbon footprints of all energy sources."
-    },
-    {
-      question: "Can renewable energy completely replace fossil fuels?",
-      answer: "Theoretically, yes. The total amount of renewable energy available far exceeds global energy demand. However, practical challenges include energy storage, grid integration, and ensuring reliable supply. Many experts believe that with continued technological advancements, policy support, and investment, a transition to a predominantly renewable energy system is achievable in the coming decades."
-    },
-    {
-      question: "How does energy storage work with renewable energy?",
-      answer: "Energy storage technologies like batteries, pumped hydro storage, compressed air, and thermal storage help address the intermittent nature of some renewable sources. These systems store excess energy when production is high and release it when production is low, ensuring a stable and reliable energy supply. Advances in battery technology are making storage increasingly efficient and affordable."
     }
   ];
 
@@ -115,6 +95,7 @@ const Awareness = () => {
       <Navbar />
       
       <main className="pt-24 pb-16">
+        {/* Hero Section */}
         <section className="px-6 mb-20">
           <div className="max-w-7xl mx-auto text-center">
             <motion.div
@@ -135,40 +116,14 @@ const Awareness = () => {
               </p>
             </motion.div>
             
+            {/* Decorative elements */}
             <div className="absolute top-60 right-10 w-40 h-40 bg-anka-turquoise/10 rounded-full blur-3xl"></div>
             <div className="absolute top-80 left-20 w-60 h-60 bg-anka-gold/10 rounded-full blur-3xl"></div>
           </div>
         </section>
 
-        <div className="px-6 mb-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex justify-center flex-wrap gap-4">
-              <button 
-                className={`tab-button flex items-center ${activeTab === 'qa' ? 'active' : ''}`}
-                onClick={() => setActiveTab('qa')}
-              >
-                <BookOpenCheck size={18} className="mr-2" />
-                Q&A Sessions
-              </button>
-              <button 
-                className={`tab-button flex items-center ${activeTab === 'videos' ? 'active' : ''}`}
-                onClick={() => setActiveTab('videos')}
-              >
-                <Video size={18} className="mr-2" />
-                Short Videos
-              </button>
-              <button 
-                className={`tab-button flex items-center ${activeTab === 'diy' ? 'active' : ''}`}
-                onClick={() => setActiveTab('diy')}
-              >
-                <Wrench size={18} className="mr-2" />
-                DIY Projects
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <section className={`px-6 mb-20 relative ${activeTab === 'qa' ? 'block' : 'hidden'}`}>
+        {/* Q&A Section */}
+        <section className="px-6 mb-20 relative">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4 relative inline-block">
@@ -185,7 +140,8 @@ const Awareness = () => {
           </div>
         </section>
 
-        <section className={`px-6 mb-20 relative ${activeTab === 'videos' ? 'block' : 'hidden'}`}>
+        {/* Video Section */}
+        <section className="px-6 mb-20 relative">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4 relative inline-block">
@@ -218,7 +174,8 @@ const Awareness = () => {
           </div>
         </section>
 
-        <section className={`px-6 relative ${activeTab === 'diy' ? 'block' : 'hidden'}`}>
+        {/* DIY Projects Section */}
+        <section className="px-6 relative">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white mb-4 relative inline-block">

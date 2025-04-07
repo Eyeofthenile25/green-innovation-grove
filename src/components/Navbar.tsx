@@ -57,15 +57,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 px-6 transition-all duration-300 ${
-      scrolled 
-        ? 'py-3 bg-white shadow-sm border-b border-gray-200' 
-        : 'py-5 bg-white'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 px-6 transition-all duration-300 ${scrolled ? 'py-3 glass shadow-sm' : 'py-5 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link 
           to="/" 
-          className="flex items-center space-x-2 text-gray-800"
+          className="flex items-center space-x-2 text-anka-gold"
           aria-label="Anka - Home"
         >
           <img 
@@ -73,7 +69,7 @@ const Navbar = () => {
             alt="Anka Logo" 
             className="h-10 w-10" 
           />
-          <span className="text-2xl font-bold tracking-tight text-gray-900">anka</span>
+          <span className="text-2xl font-bold tracking-tight">anka</span>
         </Link>
         
         <div className="hidden md:flex md:items-center md:space-x-8">
@@ -83,8 +79,8 @@ const Navbar = () => {
               to={link.path}
               className={`transition-all duration-200 py-2 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 ${
                 location.pathname === link.path
-                  ? 'font-medium text-blue-600 after:bg-blue-600 after:w-full'
-                  : 'text-gray-600 hover:text-blue-600 after:bg-blue-600/50'
+                  ? 'font-medium text-anka-gold after:bg-anka-gold after:w-full'
+                  : 'text-foreground/80 hover:text-anka-gold after:bg-anka-gold/50'
               }`}
             >
               {link.name}
@@ -97,22 +93,22 @@ const Navbar = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               onBlur={() => setTimeout(() => setIsMenuOpen(false), 100)}
-              className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors"
+              className="flex items-center space-x-1 text-foreground/80 hover:text-anka-gold transition-colors"
             >
               <span>Menu</span>
               <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
             </button>
             
             {isMenuOpen && (
-              <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-200 animate-fade-in">
+              <div className="absolute right-0 mt-2 w-40 bg-anka-navy rounded-lg shadow-lg py-2 z-50 border border-anka-gold/20 animate-fade-in">
                 {menuLinks.map(link => (
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`block px-4 py-2 text-sm hover:bg-blue-50 transition-colors ${
+                    className={`block px-4 py-2 text-sm hover:bg-anka-gold/10 transition-colors ${
                       location.pathname === link.path
-                        ? 'font-medium text-blue-600 bg-blue-50'
-                        : 'text-gray-700'
+                        ? 'font-medium text-anka-gold bg-anka-gold/5'
+                        : 'text-foreground/80'
                     }`}
                   >
                     {link.name}
@@ -127,32 +123,32 @@ const Navbar = () => {
               <button 
                 onClick={() => setIsProfileOpen(!isProfileOpen)}
                 onBlur={() => setTimeout(() => setIsProfileOpen(false), 100)}
-                className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+                className="flex items-center space-x-2 text-foreground/80 hover:text-anka-gold transition-colors"
               >
-                <div className="h-9 w-9 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                <div className="h-9 w-9 rounded-full bg-anka-gold/20 border border-anka-gold/30 flex items-center justify-center text-anka-gold">
                   {user?.image ? (
                     <img src={user.image} alt={user.name} className="h-full w-full rounded-full object-cover" />
                   ) : (
                     <User size={18} />
                   )}
                 </div>
-                <span className="text-sm font-medium hidden lg:block text-gray-800">{user?.name}</span>
+                <span className="text-sm font-medium hidden lg:block">{user?.name}</span>
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isProfileOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-200 animate-fade-in">
-                  <div className="px-4 py-2 border-b border-gray-100">
-                    <p className="text-sm font-medium text-blue-600">{user?.name}</p>
-                    <p className="text-xs text-gray-500 truncate">{user?.email}</p>
+                <div className="absolute right-0 mt-2 w-48 bg-anka-navy rounded-lg shadow-lg py-2 z-50 border border-anka-gold/20 animate-fade-in">
+                  <div className="px-4 py-2 border-b border-anka-gold/10">
+                    <p className="text-sm font-medium text-anka-gold">{user?.name}</p>
+                    <p className="text-xs text-foreground/60 truncate">{user?.email}</p>
                   </div>
-                  <Link to="/profile" className="flex items-center space-x-2 w-full px-4 py-2 text-sm hover:bg-blue-50 transition-colors">
-                    <Settings size={16} className="text-gray-600" />
-                    <span className="text-gray-800">Profile Settings</span>
+                  <Link to="/profile" className="flex items-center space-x-2 w-full px-4 py-2 text-sm hover:bg-anka-gold/10 transition-colors">
+                    <Settings size={16} />
+                    <span>Profile Settings</span>
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center space-x-2 text-left w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                    className="flex items-center space-x-2 text-left w-full px-4 py-2 text-sm text-red-400 hover:bg-anka-gold/10 transition-colors"
                   >
                     <LogOut size={16} />
                     <span>Logout</span>
@@ -163,7 +159,7 @@ const Navbar = () => {
           ) : (
             <Link 
               to="/auth" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              className="bg-anka-gold hover:bg-anka-gold/90 text-anka-pharaohBlue px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             >
               Login
             </Link>
@@ -174,7 +170,7 @@ const Navbar = () => {
           {isAuthenticated && (
             <Dialog>
               <DialogTrigger asChild>
-                <button className="h-8 w-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                <button className="h-8 w-8 rounded-full bg-anka-gold/20 border border-anka-gold/30 flex items-center justify-center text-anka-gold">
                   {user?.image ? (
                     <img src={user.image} alt={user.name} className="h-full w-full rounded-full object-cover" />
                   ) : (
@@ -182,13 +178,13 @@ const Navbar = () => {
                   )}
                 </button>
               </DialogTrigger>
-              <DialogContent className="bg-white border border-gray-200">
+              <DialogContent className="bg-anka-pharaohBlue border border-anka-gold/20">
                 <DialogHeader>
-                  <DialogTitle className="text-blue-600">Account</DialogTitle>
+                  <DialogTitle className="text-anka-gold">Account</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center space-x-3">
-                    <div className="h-12 w-12 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                    <div className="h-12 w-12 rounded-full bg-anka-gold/20 border border-anka-gold/30 flex items-center justify-center text-anka-gold">
                       {user?.image ? (
                         <img src={user.image} alt={user.name} className="h-full w-full rounded-full object-cover" />
                       ) : (
@@ -196,24 +192,24 @@ const Navbar = () => {
                       )}
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">{user?.name}</p>
-                      <p className="text-sm text-gray-600">{user?.email}</p>
+                      <p className="font-medium text-white">{user?.name}</p>
+                      <p className="text-sm text-white/60">{user?.email}</p>
                     </div>
                   </div>
                   <div className="pt-2 space-y-2">
                     <Link 
                       to="/profile"
-                      className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-blue-50"
+                      className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-anka-gold/10"
                     >
-                      <Settings size={18} className="text-blue-600" />
-                      <span className="text-gray-800">Profile Settings</span>
+                      <Settings size={18} className="text-anka-gold" />
+                      <span className="text-white">Profile Settings</span>
                     </Link>
                     <button
                       onClick={handleLogout}
-                      className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-red-50"
+                      className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-anka-gold/10"
                     >
-                      <LogOut size={18} className="text-red-600" />
-                      <span className="text-red-600">Logout</span>
+                      <LogOut size={18} className="text-red-400" />
+                      <span className="text-red-400">Logout</span>
                     </button>
                   </div>
                 </div>
@@ -222,7 +218,7 @@ const Navbar = () => {
           )}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-800"
+            className="text-anka-gold"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             {isOpen ? <X className="h-6 w-6" /> : <AlignJustify className="h-6 w-6" />}
@@ -231,7 +227,7 @@ const Navbar = () => {
       </div>
       
       <div 
-        className={`fixed inset-0 z-40 bg-white md:hidden transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-40 glass-dark md:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ top: '0', paddingTop: '5rem' }}
@@ -243,8 +239,8 @@ const Navbar = () => {
               to={link.path}
               className={`text-xl py-3 transition-colors duration-200 ${
                 location.pathname === link.path
-                  ? 'text-blue-600 font-medium'
-                  : 'text-gray-800 hover:text-blue-600'
+                  ? 'text-anka-gold font-medium'
+                  : 'text-white hover:text-anka-gold'
               }`}
             >
               {link.name}
@@ -253,7 +249,7 @@ const Navbar = () => {
           {!isAuthenticated && (
             <Link 
               to="/auth" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-base font-medium transition-colors w-full text-center mt-4"
+              className="bg-anka-gold hover:bg-anka-gold/90 text-anka-pharaohBlue px-4 py-2 rounded-lg text-base font-medium transition-colors w-full text-center mt-4"
             >
               Login / Register
             </Link>
