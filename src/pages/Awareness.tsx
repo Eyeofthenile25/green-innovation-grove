@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Video, Lightbulb, ExternalLink, BookOpenCheck, Tool, Flame } from 'lucide-react';
+import { BookOpen, Video, Lightbulb, ExternalLink, BookOpenCheck, Wrench, Flame } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import QAAccordion from '../components/QAAccordion';
@@ -11,7 +10,6 @@ import { Button } from '@/components/ui/button';
 const Awareness = () => {
   const [activeTab, setActiveTab] = useState('qa');
 
-  // Define QA items for the accordion
   const qaItems = [
     {
       question: "What is renewable energy?",
@@ -117,7 +115,6 @@ const Awareness = () => {
       <Navbar />
       
       <main className="pt-24 pb-16">
-        {/* Hero Section */}
         <section className="px-6 mb-20">
           <div className="max-w-7xl mx-auto text-center">
             <motion.div
@@ -138,13 +135,11 @@ const Awareness = () => {
               </p>
             </motion.div>
             
-            {/* Decorative elements */}
             <div className="absolute top-60 right-10 w-40 h-40 bg-anka-turquoise/10 rounded-full blur-3xl"></div>
             <div className="absolute top-80 left-20 w-60 h-60 bg-anka-gold/10 rounded-full blur-3xl"></div>
           </div>
         </section>
 
-        {/* Tab Navigation */}
         <div className="px-6 mb-8">
           <div className="max-w-7xl mx-auto">
             <div className="flex justify-center flex-wrap gap-4">
@@ -166,14 +161,13 @@ const Awareness = () => {
                 className={`tab-button flex items-center ${activeTab === 'diy' ? 'active' : ''}`}
                 onClick={() => setActiveTab('diy')}
               >
-                <Tool size={18} className="mr-2" />
+                <Wrench size={18} className="mr-2" />
                 DIY Projects
               </button>
             </div>
           </div>
         </div>
 
-        {/* Q&A Section */}
         <section className={`px-6 mb-20 relative ${activeTab === 'qa' ? 'block' : 'hidden'}`}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -191,7 +185,6 @@ const Awareness = () => {
           </div>
         </section>
 
-        {/* Video Section */}
         <section className={`px-6 mb-20 relative ${activeTab === 'videos' ? 'block' : 'hidden'}`}>
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
@@ -225,7 +218,6 @@ const Awareness = () => {
           </div>
         </section>
 
-        {/* DIY Projects Section */}
         <section className={`px-6 relative ${activeTab === 'diy' ? 'block' : 'hidden'}`}>
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
