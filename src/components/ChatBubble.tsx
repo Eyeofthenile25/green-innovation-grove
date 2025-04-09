@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 
@@ -14,7 +13,6 @@ const ChatBubble = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
   
-  // Auto-scroll to the bottom when new messages appear
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -26,19 +24,15 @@ const ChatBubble = () => {
   const handleSendMessage = () => {
     if (!newMessage.trim()) return;
     
-    // Add user message
     const userMessage = { text: newMessage, type: "sent" };
     setMessages([...messages, userMessage]);
     setNewMessage('');
     
-    // Show typing indicator
     setIsTyping(true);
     
-    // Simulate AI response after a delay
     setTimeout(() => {
       setIsTyping(false);
       
-      // Generate a simple response
       const ideaResponse = {
         text: `Thanks for sharing your idea about ${newMessage.substring(0, 30)}${newMessage.length > 30 ? '...' : ''}! I'm excited to help you explore its potential.`,
         type: "received"
@@ -67,7 +61,6 @@ const ChatBubble = () => {
       
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-gray-100 rounded-2xl shadow-xl overflow-hidden border border-gray-300 animate-fade-in">
-          {/* iMessage-style header */}
           <div className="bg-gray-200 text-black p-3 flex justify-between items-center border-b border-gray-300">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -83,12 +76,10 @@ const ChatBubble = () => {
             </button>
           </div>
           
-          {/* Messages container */}
           <div className="max-h-[350px] overflow-y-auto bg-gray-100 p-4" style={{
             backgroundImage: `radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px)`,
             backgroundSize: '20px 20px'
           }}>
-            {/* Message bubbles */}
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"} mb-3`}>
                 <div className={`max-w-[75%] px-4 py-2 bubble-in ${message.type === "sent" ? "imessage-sent" : "imessage-received"}`}>
@@ -97,7 +88,6 @@ const ChatBubble = () => {
               </div>
             ))}
             
-            {/* Typing indicator */}
             {isTyping && (
               <div className="flex justify-start mb-3">
                 <div className="bg-gray-300 rounded-2xl rounded-tl-sm px-4 py-2 bubble-in">
@@ -110,11 +100,9 @@ const ChatBubble = () => {
               </div>
             )}
             
-            {/* Invisible element for scrolling to bottom */}
             <div ref={messagesEndRef} />
           </div>
           
-          {/* iMessage-style input area */}
           <div className="bg-gray-200 p-3 flex items-center space-x-2">
             <input
               type="text"
