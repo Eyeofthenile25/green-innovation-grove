@@ -1,0 +1,25 @@
+
+@layer utilities {
+  /* Glow effects */
+  .glow-gold {
+    box-shadow: 0 0 15px 2px rgba(201, 162, 39, 0.6);
+  }
+  
+  .glow-turquoise {
+    box-shadow: 0 0 15px 2px rgba(78, 205, 196, 0.6);
+  }
+  
+  /* Custom scrollbar - updated for brighter theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-anka-gold/60 rounded-full hover:bg-anka-gold/80 transition-colors;
+  }
+}

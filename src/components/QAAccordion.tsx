@@ -2,51 +2,13 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-interface QAItemProps {
+interface QAItem {
   question: string;
   answer: string;
-  isOpen?: boolean;
-  toggleOpen: () => void;
-  index: number;
 }
 
-const QAItem: React.FC<QAItemProps> = ({ question, answer, isOpen = false, toggleOpen, index }) => {
-  return (
-    <div 
-      className={`border-b border-anka-gray/20 last:border-none ${isOpen ? 'pb-4' : ''} animate-fade-in-up`} 
-      style={{ animationDelay: `${index * 0.05}s` }}
-    >
-      <button
-        className="w-full flex items-center justify-between py-4 text-left font-medium text-lg focus:outline-none"
-        onClick={toggleOpen}
-        aria-expanded={isOpen}
-      >
-        <span className="pr-8">{question}</span>
-        <ChevronDown 
-          className={`transition-transform duration-200 min-w-5 ${isOpen ? 'rotate-180 text-anka-blue' : ''}`} 
-          size={20} 
-        />
-      </button>
-      <div
-        className={`grid transition-all duration-300 ease-in-out ${
-          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-        }`}
-      >
-        <div className="overflow-hidden">
-          <div className="text-anka-darkBlue/70 pb-2 pt-1">
-            {answer}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 interface QAAccordionProps {
-  items: {
-    question: string;
-    answer: string;
-  }[];
+  items: QAItem[];
   title?: string;
   subtitle?: string;
 }
@@ -58,12 +20,9 @@ const QAAccordion: React.FC<QAAccordionProps> = ({
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const toggleItem = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/50">
+      {/* Header section */}
       {title && (
         <div className="mb-6 text-center">
           <h2 className="heading-3 mb-2">{title}</h2>
@@ -71,16 +30,39 @@ const QAAccordion: React.FC<QAAccordionProps> = ({
         </div>
       )}
       
+      {/* Questions and answers */}
       <div>
         {items.map((item, index) => (
-          <QAItem
+          <div 
             key={index}
-            question={item.question}
-            answer={item.answer}
-            isOpen={openIndex === index}
-            toggleOpen={() => toggleItem(index)}
-            index={index}
-          />
+            className={`border-b border-anka-gray/20 last:border-none ${openIndex === index ? 'pb-4' : ''}`} 
+          >
+            {/* Question button */}
+            <button
+              className="w-full flex items-center justify-between py-4 text-left font-medium text-lg focus:outline-none"
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+              aria-expanded={openIndex === index}
+            >
+              <span className="pr-8">{item.question}</span>
+              <ChevronDown 
+                className={`transition-transform duration-200 min-w-5 ${openIndex === index ? 'rotate-180 text-anka-blue' : ''}`} 
+                size={20} 
+              />
+            </button>
+            
+            {/* Answer content */}
+            <div
+              className={`grid transition-all duration-300 ease-in-out ${
+                openIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="text-anka-darkBlue/70 pb-2 pt-1">
+                  {item.answer}
+                </div>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
