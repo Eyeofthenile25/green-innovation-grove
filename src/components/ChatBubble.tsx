@@ -5,7 +5,10 @@ import { MessageCircle, X, Send } from 'lucide-react';
 const ChatBubble = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Hi there! I'm your AI assistant. Share your renewable energy idea and I'll evaluate it for you.", type: "received" }
+    { 
+      text: "Welcome to Anka's AI Assistant! I'm here to help you explore renewable energy ideas and provide insights. What innovative concept would you like to discuss today?", 
+      type: "received" 
+    }
   ]);
   const [newMessage, setNewMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -37,7 +40,7 @@ const ChatBubble = () => {
       
       // Generate a simple response
       const ideaResponse = {
-        text: `Thanks for sharing your idea about ${newMessage.substring(0, 30)}${newMessage.length > 30 ? '...' : ''}! That's a great renewable energy concept with promising potential.`,
+        text: `Thanks for sharing your idea about ${newMessage.substring(0, 30)}${newMessage.length > 30 ? '...' : ''}! I'm excited to help you explore its potential.`,
         type: "received"
       };
       
